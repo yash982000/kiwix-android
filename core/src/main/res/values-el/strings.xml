@@ -24,6 +24,7 @@
   <string name="choose_file">Επιλογή ZIM Content File (*.zim)</string>
   <string name="open_in_new_tab">Άνοιγμα συνδέσμου σε νέα καρτέλα;</string>
   <string name="error_file_not_found">Σφάλμα: Το επιλεγμένο ZIM αρχείο δεν μπόρεσε να βρεθεί.</string>
+  <string name="zim_not_opened">Δεν μπόρεσε να ανοιχθεί το αρχείο zim</string>
   <string name="error_file_invalid">Σφάλμα: Το επιλεγμένο αρχείο δεν είναι έγκυρο αρχείο ZIM.</string>
   <string name="error_article_url_not_found">Σφάλμα:το Ανέβασμα του λήμματος (Url: %1$s) απέτυχε.</string>
   <string name="pref_display_title">Εμφάνιση</string>
@@ -79,6 +80,7 @@
   <string name="zim_no_pic">Χωρίς εικόνες</string>
   <string name="zim_no_vid">Χωρίς βίντεο</string>
   <string name="no_network_connection">Δεν υπάρχει σύνδεση στο δίκτυο</string>
+  <string name="settings">Ρυθμίσεις</string>
   <string name="help_2">Τι κάνει το Kiwix;</string>
   <string name="help_3">Το Kiwix είναι ένας αναγνώστης περιεχομένου εκτός σύνδεσης. Φέρεται πολύ σαν περιηγητής αλλά αντί να έχει πρόσβαση σε διαδικτυακές σελίδες, διαβάζει περιεχόμενο από ένα αρχείο σε μορφοποίηση ZIM.</string>
   <string name="help_5">Που είναι το περιεχόμενο;</string>

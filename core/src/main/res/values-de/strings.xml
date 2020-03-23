@@ -22,6 +22,7 @@
   <string name="search_label">Suchen</string>
   <string name="choose_file">Wähle eine Inhaltsdatei aus (*.zim)</string>
   <string name="open_in_new_tab">Link in neuer Registerkarte öffnen?</string>
+  <string name="server_stopped_successfully_toast_message">Server erfolgreich gestoppt.</string>
   <string name="error_file_not_found">Fehler: Die ausgewählte ZIM-Datei konnte nicht gefunden werden.</string>
   <string name="error_file_invalid">Fehler: Die ausgewählte Datei ist keine gültige ZIM-Datei.</string>
   <string name="error_article_url_not_found">Fehler: Das Laden des Artikels (URL: %1$s) ist fehlgeschlagen.</string>
@@ -128,4 +129,6 @@
   <string name="other_languages">Weitere Sprachen:</string>
   <string name="no_results">Keine Ergebnisse</string>
   <string name="no_bookmarks">Keine Lesezeichen</string>
+  <string name="delete_history">Verlauf löschen?</string>
+  <string name="delete_bookmarks">Lesezeichen löschen?</string>
 </resources>

@@ -37,6 +37,7 @@
   <string name="start_server_label">Iniciar servidor</string>
   <string name="stop_server_label">Detener servidor</string>
   <string name="error_file_not_found">Error: no se encontró el archivo ZIM seleccionado.</string>
+  <string name="zim_not_opened">No se pudo abrir el archivo .zim</string>
   <string name="error_file_invalid">Error: el archivo seleccionado no es un archivo ZIM válido.</string>
   <string name="error_article_url_not_found">Error: falló la carga del artículo (URL: %1$s).</string>
   <string name="pref_display_title">Mostrar</string>
@@ -100,6 +101,7 @@
   <string name="zim_no_pic">Ninguna imagen</string>
   <string name="zim_no_vid">Ningún video</string>
   <string name="no_network_connection">Ninguna conexión de red</string>
+  <string name="settings">Configuración</string>
   <string name="help_2">¿Qué hace Kiwix?</string>
   <string name="help_3">Kiwix es un lector de contenido desconectado. Actúa mucho como un navegador pero en vez de acceder páginas web en línea, lee contenido de un archivo en formato ZIM.</string>
   <string name="help_4">Si bien Kiwix se diseñó originalmente para proporcionar una Wikipedia sin conexión, también puede leer otros contenidos.</string>
