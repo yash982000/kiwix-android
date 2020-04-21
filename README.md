@@ -7,7 +7,6 @@
 </a>
 
 # Kiwix Android
-
 Kiwix is an offline reader for Web content. One of its main purposes
 is to make Wikipedia available offline. This is done by reading the
 content of a file in the ZIM format, a highly compressed open format
