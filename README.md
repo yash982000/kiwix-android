@@ -39,7 +39,6 @@ If you are interested in our custom apps they have their own repo [kiwix-android
 
 ## Libraries Used
 
-
 - [Dagger 2](https://github.com/google/dagger) - A fast dependency injector for Android and Java
 - [Retrofit](https://square.github.io/retrofit/) - Retrofit turns your REST API into a Java interface
 - [OkHttp](https://github.com/square/okhttp) - An HTTP+SPDY client for Android and Java applications
