@@ -25,6 +25,7 @@ pieces in Java).
 
 ## Build Instructions
 
+
 Production releases of the app are built on travis and released automatically
 
 To build this repository alone for development purposes you can simply
