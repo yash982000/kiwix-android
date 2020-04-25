@@ -1,4 +1,4 @@
-<img src="https://github.com/kiwix/kiwix-android/blob/develop/Kiwix_icon_transparent_512x512.png" align="right" height='250' />
+  <img src="https://github.com/kiwix/kiwix-android/blob/develop/Kiwix_icon_transparent_512x512.png" align="right" height='250' />
 <a href="https://play.google.com/store/apps/details?id=org.kiwix.kiwixmobile" target="_blank" align="left">
   <img src="https://play.google.com/intl/en/badges/images/badge_new.png" alt="Get it on Google Play" height="30" />
 </a>
