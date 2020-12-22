@@ -42,9 +42,6 @@ dependencies {
     api(fileTree(mapOf("include" to "*.aar", "dir" to "libs")))
   }
 
-  // Android Support
-  implementation(Libs.cardview)
-
   // SquiDB
   implementation(Libs.squidb)
   implementation(Libs.squidb_annotations)
@@ -63,4 +60,7 @@ dependencies {
   implementation(Libs.android_arch_lifecycle_extensions)
   implementation(Libs.objectbox_kotlin)
   implementation(Libs.objectbox_rxjava)
+  implementation(Libs.webkit)
+  testImplementation(Libs.kotlinx_coroutines_test)
+  implementation(Libs.kotlinx_coroutines_android)
 }

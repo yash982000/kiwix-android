@@ -13,7 +13,6 @@
   <string name="save_media">Kaydi galka muuqaalka ah si</string>
   <string name="save_media_error">Waxaa dhacay qalad markii la doonayay in la kaydiyo!</string>
   <string name="save_media_saved">U kaydi qaab ah %1$s galka sawirka gaarka kuu ah</string>
-  <string name="rescan_fs_warning">Waxaa socota Kala hufidda ee Galalka ZIM, fadlan Sug…</string>
   <string name="search_label">Raadi</string>
   <string name="choose_file">Dooro galka ZIM ee ka samaysan (*.zim)</string>
   <string name="open_in_new_tab">Fur webka qaab cusub</string>
@@ -21,10 +20,8 @@
   <string name="error_file_invalid">Qalad: Galka ZIM ee aad dooratay maaha mid shaqaynaya.</string>
   <string name="error_article_url_not_found">Qalad: Galinta maqaalka (Url: %1$s) ma galin.</string>
   <string name="pref_display_title">Qaab aragga</string>
-  <string name="pref_zoom_dialog">Heelka weynaynta</string>
   <string name="pref_info_title">Macluumaad</string>
   <string name="pref_info_version">Nuqul</string>
-  <string name="pref_zoom_enable">Weynayn hagista</string>
   <string name="pref_night_mode">Habka habeenkii</string>
   <string name="pref_night_mode_summary">Itus maqaalada iyagoo leh midab madadaalo ah</string>
   <string name="pref_back_to_top">Ku laabo kor</string>

@@ -1,3 +1,78 @@
+3.4.3
+NEW: Updated translations
+BUGFIX: Video seek was not working
+BUGFIX: Back button in history and bookmarks toolbar always took to library
+BUGFIX: Books hosted from android client were not updating on browser dynamically
+BUGFIX: Creating multiple tabs was causing `loading` in previously opened tabs
+BUGFIX: Messages displayed when no books are present were inconsistent typographically
+
+3.4.2
+NEW: Service worker support for war2c zim files
+NEW: Updated translations
+NEW: Online Library won't be downloaded on mobile data when wifi only preference is set
+BUGFIX: Text to Speech continues in background
+BUGFIX: Video player became became unresponsive post backgrounding
+BUGFIX: Bookmarks/History weren't displaying their title
+BUGFIX: Memory leaks patched
+BUGFIX: Table of contents accessible from non Reader screens
+
+3.4.1
+NEW: Overhauled navigation
+NEW: Updated translations
+NEW: Support resizing Kiwix
+NEW: Open search in new tab
+BUGFIX: Search speed increased and loading state added
+BUGFIX: Memory leaks patched
+BUGFIX: More consistent labelling drives internal/external
+BUGFIX: Cache results of a conclusive file system detection
+BUGFIX: Overlapping lables in Library
+BUGFIX: Accessibility improvements
++ Lots Lots Lots More
+
+3.4.0
+Beta release of navigation
+Full release notes to follow in 3.4.1
+
+3.3.4
+NEW: Updated translations
+BUGFIX: Fullscreen videos were not displaying
+BUGFIX: Urls containing "?" were not loading properly
+BUGFIX: Notifications were erroneously allowing the user to pause a download
+BUGFIX: Urls with "#" anchors now load to the correct portion of the page
+BUGFIX: Save Media on long click was not working
++ Lots More
+
+3.3.3
+BUGFIX: Crash on older devices due to OKHTTP
+
+3.3.2
+NEW: Better flow for hosting books
+NEW: Control text zoom for zim files
+NEW: Bookmarks/History internals rewrite
+NEW: Updated translations
+BUGFIX: Search results were inaccurate when typing too quickly
+BUGFIX: new zim scheme for addressing content
+BUGFIX: Native memory leaks fixed
+BUGFIX: fix crash on returning to webview from search result
+BUGFIX: some zim files could not be found after downloading
++ Lots More
+
+3.3.1
+NEW: Send Diagnostic Reports
+BUGFIX: Loading older zim files could fail
+BUGFIX: Some svgs were not loading
++ Lots More
+
+3.3.0
+NEW: Improved loading of audio/video content
+NEW: Card based views for lists
+NEW: Improved translations
+NEW: Delete notes
+BUGFIX: Sensible zoom defaults for oversized content
+BUGFIX: Large downloads should start immediately
+BUGFIX: Searching with kiwix via highlighting prompt
++ Lots More
+
 3.2.0
 NEW: Downloads tab merged with Library
 NEW: Improved translations

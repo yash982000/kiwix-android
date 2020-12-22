@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Kly
 * LNDDYL
 * Liuxinyu970226
@@ -8,7 +9,6 @@
 * Wehwei
 -->
 <resources>
-  <string name="kiwi">Kiwi</string>
   <string name="menu_help">說明</string>
   <string name="menu_home">首頁</string>
   <string name="menu_settings">設定</string>
@@ -24,7 +24,6 @@
   <string name="save_media">儲存媒體</string>
   <string name="save_media_error">嘗試儲存該媒體時出錯！</string>
   <string name="save_media_saved">已將媒體以 %1$s 儲存到 Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">正在掃描可下載內容，請稍候…</string>
   <string name="search_label">搜尋</string>
   <string name="choose_file">請選擇一份內容檔案 (*.zim)</string>
   <string name="open_in_new_tab">在新分頁打開連結？</string>
@@ -32,38 +31,38 @@
   <string name="hotspot_failed_title">開啟熱點失敗</string>
   <string name="hotspot_failed_message">看起來似乎是您的熱點已開啟，請停用您的 WiFi 熱點來繼續。</string>
   <string name="go_to_wifi_settings_label">前往 WIFI 設定</string>
+  <string name="connection_refused">連線被拒絕。</string>
   <string name="hotspot_running">運行熱點</string>
   <string name="no_books_selected_toast_message">請先選擇書籍</string>
   <string name="server_failed_message">無法開啟伺服器，請啟動您的熱點</string>
   <string name="server_failed_toast_message">無法開啟伺服器。</string>
   <string name="server_started_successfully_toast_message">伺服器開啟成功。</string>
+  <string name="server_stopped_successfully_toast_message">成功停止伺服器。</string>
   <string name="hotspot_turned_on">熱點已啟動</string>
   <string name="hotspot_details_message">以下為您的本地熱點詳細內容。\nSSID：%1$s \n密碼：%2$s</string>
   <string name="server_textview_default_message">選擇您想要在伺服器上託管的檔案</string>
   <string name="progress_dialog_starting_server">開啟伺服器中</string>
-  <string name="hotspot_dialog_title">啟動您的 WIFI 熱點</string>
-  <string name="hotspot_dialog_message">要讓此功能運作的話，您需要先手動將您的 WIFI 熱點開啟。</string>
-  <string name="hotspot_dialog_neutral_button">是的，我已開啟</string>
+  <string name="hotspot_dialog_title">書籍託管說明</string>
+  <string name="wifi_dialog_title">偵測到 WiFi 連線</string>
+  <string name="wifi_dialog_body">為了在其它設備上檢視書籍，請確認所有的設備都是連線到相同的 WiFi 網路。</string>
+  <string name="hotspot_dialog_message">要讓此功能運作的話，您需要先手動將您的 WIFI 熱點開啟，或是確認主機設備與接收設備是在同一個 WiFi 網路上</string>
+  <string name="hotspot_dialog_neutral_button">前往</string>
   <string name="hotspot_channel_description">關於您的熱點/伺服器狀態的更新。</string>
   <string name="hotspot_notification_content_title">Kiwix 熱點</string>
   <string name="start_server_label">開啟伺服器</string>
   <string name="stop_server_label">停止伺服器</string>
   <string name="server_started_message">在您的瀏覽器輸入 IP 位址來存取伺服器%s</string>
   <string name="error_file_not_found">錯誤：找不到所選的 ZIM 檔案。</string>
+  <string name="zim_not_opened">無法打開 zim 檔案</string>
   <string name="error_file_invalid">錯誤：所選檔案不是有效的 ZIM 檔。</string>
   <string name="error_article_url_not_found">錯誤：載入條目(網址：%1$s)失敗。</string>
   <string name="pref_display_title">顯示</string>
-  <string name="pref_zoom_sub_title">縮放</string>
-  <string name="pref_zoom_dialog">縮放層級</string>
   <string name="pref_info_title">資訊</string>
   <string name="pref_info_version">版本</string>
-  <string name="pref_zoom_enable">縮放控制</string>
   <string name="pref_night_mode">夜間模式</string>
   <string name="pref_night_mode_summary">以反向色彩方式顯示條目</string>
   <string name="pref_back_to_top">回到頁首</string>
   <string name="pref_back_to_top_summary">在頁面底部顯示一個回到頁首的按鈕</string>
-  <string name="pref_hide_toolbar">維持工具列可見</string>
-  <string name="pref_hide_toolbar_summary">當瀏覽內容時，讓工具列不會滾動出檢視內容之外</string>
   <string name="pref_language_title">語言</string>
   <string name="pref_language_chooser">選擇語言</string>
   <string name="pref_credits">貢獻者和許可協議</string>
@@ -76,13 +75,14 @@
   <string name="delete_recent_search_item">刪除此項目？</string>
   <string name="pref_clear_all_history_title">清除歷史記錄</string>
   <string name="pref_clear_all_history_summary">清除近期搜尋和分頁歷史記錄</string>
+  <string name="pref_notes">備註</string>
   <string name="all_history_cleared">所有歷史記錄已清除</string>
   <string name="pref_clear_all_bookmarks_title">清除書籤</string>
-  <string name="all_bookmarks_cleared">已清除所有書籤</string>
-  <string name="clear_all_history_dialog_title">清除所有歷史記錄</string>
+  <string name="clear_all_history_dialog_title">清除所有歷史記錄？</string>
   <string name="share">分享</string>
   <string name="selected_file_cab_app_chooser_title">分享 ZIM 檔案以：</string>
   <string name="delete">刪除</string>
+  <string name="cancel">取消</string>
   <string name="delete_specific_search_toast">近期搜尋已移除</string>
   <string name="hint_contents_drawer_message">您可以向左滑動來檢視此條目內容</string>
   <string name="got_it">了解</string>
@@ -108,10 +108,11 @@
   <string name="local_zims">設備</string>
   <string name="remote_zims">線上</string>
   <string name="library">圖書館</string>
-  <string name="delete_zim_body">刪除%s？</string>
-  <string name="delete_specific_zim_toast">檔案已刪除</string>
+  <string name="delete_zim_body">以下 zim 檔案將會被刪除：\n\n%s</string>
+  <string name="delete_zims_toast">檔案刪除成功</string>
   <string name="no_files_here">沒有檔案在此</string>
-  <string name="download_no_space">沒有足夠的空間來下載此檔案。</string>
+  <string name="download_no_space">沒有足夠的空間來下載。</string>
+  <string name="download">下載</string>
   <string name="space_available">可用空間：</string>
   <string name="zim_simple">簡易</string>
   <string name="zim_no_pic">沒有圖片</string>
@@ -129,7 +130,7 @@
   <string name="help_11">在應用程式下載的 ZIM 檔案會存放在名為「Kiwix」的外部儲存裝置目錄。</string>
   <string name="pref_storage">儲存裝置</string>
   <string name="pref_current_folder">目前資料夾</string>
-  <string name="delete_zim_failed">很抱歉我們無法刪除此檔案。您應該嘗試改用檔案管理器。</string>
+  <string name="delete_zim_failed">很抱歉我們無法刪除一些檔案。您應該嘗試改用檔案管理器。</string>
   <string name="tts_pause">暫停</string>
   <string name="tts_resume">繼續</string>
   <string name="stop">停止</string>
@@ -141,6 +142,8 @@
   <string name="confirm_stop_download_msg">您確定要取消此次下載？</string>
   <string name="download_change_storage">儲存裝置設備選取器</string>
   <string name="tts_not_enabled">轉換為語音的文字無法用在 ZIM 檔案上</string>
+  <string name="texttospeech_initialization_failed">文字轉語音的初始化失敗，請重試</string>
+  <string name="texttospeech_error">文字轉語音出現意外錯誤，請重試</string>
   <string name="next">下一個</string>
   <string name="previous">上一個</string>
   <string name="wifi_only_title">允許透過移動網路來下載內容？</string>
@@ -155,7 +158,7 @@
   <string name="time_yesterday">昨日</string>
   <string name="pref_external_link_popup_title">當輸入外部連結時警告</string>
   <string name="pref_external_link_popup_summary">顯示彈跳項目來警告有關額外的耗費或不運作在離線連結上。</string>
-  <string name="external_link_popup_dialog_title">輸入外部連結</string>
+  <string name="external_link_popup_dialog_title">輸入外部連結！</string>
   <string name="external_link_popup_dialog_message">您正輸入一個外部連結。這可能會導致出額外耗費的資料傳遞，否則當您離線時不要運作。您要繼續嗎？</string>
   <string name="do_not_ask_anymore">不再詢問</string>
   <string name="your_languages">所選語言：</string>
@@ -176,7 +179,7 @@
   <string name="articleCount">%s 個條目</string>
   <string name="get_started">入門</string>
   <string name="download_books">下載書籍</string>
-  <string name="human_kind_knowledge">在您手機上的人類知識。</string>
+  <string name="humankind_knowledge">在您手機上的人類知識。</string>
   <string name="welcome_to_the_family">歡迎來到這個大家庭</string>
   <string name="save_books_offline">儲存書籍離線</string>
   <string name="download_books_message">下載書籍來隨時隨地閱讀。</string>
@@ -207,6 +210,8 @@
   <string name="ext_storage_permission_rationale_add_note">註釋需要儲存裝置存取權限</string>
   <string name="ext_storage_write_permission_denied_add_note">沒有儲存裝置存取權限註釋會無法使用</string>
   <string name="note_save_unsuccessful">註釋儲存失敗</string>
+  <string name="note_delete_successful">註釋刪除成功</string>
+  <string name="note_delete_unsuccessful">註釋未刪除</string>
   <string name="note_save_successful">註釋已儲存</string>
   <string name="note_save_error_storage_not_writable">錯誤儲存註釋：儲存裝置不可寫入</string>
   <string name="note_share_error_file_missing">註記檔案不存在</string>
@@ -220,8 +225,9 @@
   <string name="discovery_initiated">初始偵測</string>
   <string name="discovery_failed">偵測失敗</string>
   <string name="severe_loss_error">嚴重錯誤！請嘗試停用/重新啟用 WiFi P2P</string>
-  <string name="connection_failed">連接失敗</string>
+  <string name="connection_failed">連線失敗</string>
   <string name="permission_rationale_location">Android 需要位置權限來允許應用程式去偵測端點設備</string>
+  <string name="permission_rationale_location_on_host_zim_file">Android 需要位置權限來允許應用程式去托管 Zim 檔案</string>
   <string name="permission_refused_location">沒有位置權限無法定位端點設備</string>
   <string name="permission_refused_storage">沒有儲存權限無法存取 zim 檔案</string>
   <string name="request_enable_location">啟動位置來允許偵測端點</string>
@@ -244,15 +250,38 @@
   <string name="status">狀態</string>
   <string name="pref_clear_all_notes_summary">清除在所有條目裡的所有註解</string>
   <string name="pref_clear_all_notes_title">清除所有註釋</string>
+  <string name="pref_text_zoom_summary">以 25% 更改文字大小</string>
   <string name="tag_pic">圖片</string>
   <string name="tag_vid">影片</string>
   <string name="tag_text_only">僅限文字</string>
   <string name="tag_short_text">簡短文字</string>
   <string name="storage_permission_denied">儲存裝置權限被拒絕</string>
   <string name="grant_read_storage_permission">此應用程式需要可讀取儲存裝置的功能。請在您的設定裡授予權限</string>
-  <string name="go_to_settings">前往設定</string>
+  <string name="go_to_settings">前往熱點設定</string>
   <string name="no_results">沒有結果</string>
   <string name="no_bookmarks">沒有書籤！</string>
   <string name="no_history">沒有歷史</string>
   <string name="device_default">設備預設</string>
+  <string name="delete_history">刪除所有歷史？</string>
+  <string name="delete_selected_history">刪除所選的歷史？</string>
+  <string name="delete_bookmarks">刪除所有書籤？</string>
+  <string name="delete_selected_bookmarks">刪除所選的書籤？</string>
+  <string name="on">開啟</string>
+  <string name="off">關閉</string>
+  <string name="auto">自動</string>
+  <string name="send_report">傳送診斷報告</string>
+  <string name="crash_checkbox_file_system">檔案系統詳細資訊</string>
+  <string name="diagnostic_report">診斷報告</string>
+  <string name="diagnostic_report_message">請傳送所有以下詳細資訊，以讓我們可以方便診斷問題</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">文字縮放</string>
+  <string name="search_open_in_new_tab">在新分頁開啟</string>
+  <string name="reader">讀者</string>
+  <string name="no_open_book">沒有開啟的書籍</string>
+  <string name="open_library">開啟圖書館</string>
+  <string name="tab_restored">分頁已恢復</string>
+  <string name="open_drawer">開啟抽屜</string>
+  <string name="close_drawer">關閉抽屜</string>
+  <string name="how_to_update_content">如何更新內容？</string>
+  <string name="update_content_description">要更新內容（zim 檔案）的話，您需要下載這個相似內容的完整最新版本。您可以透過下載段落來進行。</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Bl707
 * Innocentbunny
 * Nikhilsheth
@@ -8,6 +9,7 @@
 * Sfic
 * Siddhartha Ghai
 * Suyash.dwivedi
+* गोपाल
 * संजीव कुमार
 -->
 <resources>
@@ -24,7 +26,6 @@
   <string name="save_media">मीडिया सहेजें</string>
   <string name="save_media_error">मीडिया को सहेजते समय एक त्रुटि आयी।</string>
   <string name="save_media_saved">सहेजे गये मीडिया को %s के रूप में Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">डाउनलोड करने योग्य सामग्री के लिए खोजबीन जारी, कृपया प्रतीक्षा करें …</string>
   <string name="search_label">खोजें</string>
   <string name="choose_file">सामग्री फ़ाइल चुनें (*.zim)</string>
   <string name="open_in_new_tab">नए टैब में लिंक खोलें?</string>
@@ -32,17 +33,12 @@
   <string name="error_file_invalid">त्रुटि: चुनी गयी फ़ाइल एक वैध ZIM फ़ाइल नहीं है।</string>
   <string name="error_article_url_not_found">त्रुटि: आलेख (Url:  %1$s ) लोड करना विफल रहा।</string>
   <string name="pref_display_title">प्रदर्शन</string>
-  <string name="pref_zoom_sub_title">जूम</string>
-  <string name="pref_zoom_dialog">ज़ूम स्तर</string>
   <string name="pref_info_title">जानकारी</string>
   <string name="pref_info_version">संस्करण</string>
-  <string name="pref_zoom_enable">ज़ूम नियंत्रण</string>
   <string name="pref_night_mode">रात्रि मोड</string>
   <string name="pref_night_mode_summary">उल्टे रंगों के साथ लेख दिखाएँ</string>
   <string name="pref_back_to_top">वापस शीर्ष पे जाएँ</string>
   <string name="pref_back_to_top_summary">उपर तक खिसकाने के लिए पृष्ठ के अंत में एक बटन दिखाएँ</string>
-  <string name="pref_hide_toolbar">खिसकाते समय टूलबार छुपाएं</string>
-  <string name="pref_hide_toolbar_summary">जब पृष्ठ नीचे खिसकाया जाता है, टूलबार छुपाएं</string>
   <string name="pref_language_title">भाषा</string>
   <string name="pref_language_chooser">भाषा चुनें</string>
   <string name="pref_credits">योगदानकर्ता और लाइसेंस</string>
@@ -56,7 +52,7 @@
   <string name="pref_clear_all_history_title">इतिहास साफ़ करें</string>
   <string name="pref_clear_all_history_summary">हाल की खोजों और टैब इतिहास को साफ़ करें</string>
   <string name="all_history_cleared">सभी इतिहास मिट गया</string>
-  <string name="clear_all_history_dialog_title">पूरा इतिहास मिटायें</string>
+  <string name="clear_all_history_dialog_title" fuzzy="true">पूरा इतिहास मिटायें</string>
   <string name="delete">हटायें</string>
   <string name="delete_specific_search_toast">हाल की खोजें हटा दी गयीं</string>
   <string name="hint_contents_drawer_message">आप इस लेख की सामग्री को देखने के लिए बाएं खिसका सकते हैं</string>
@@ -83,9 +79,10 @@
   <string name="local_zims">डिवाइस</string>
   <string name="remote_zims">ऑनलाइन</string>
   <string name="library">पुस्तकालय</string>
-  <string name="delete_specific_zim_toast">फाइल हटा दी गई</string>
+  <string name="delete_zim_body">निम्न ज़िम फ़ाइल (ओं) को हटा दिया जाएगा:\n\n%s</string>
+  <string name="delete_zims_toast">फाइल हटा दी गई</string>
   <string name="no_files_here">यहां कोई फ़ाइल नहीं</string>
-  <string name="download_no_space">इस फ़ाइल को डाउनलोड करने के लिए अपर्याप्त जगह।</string>
+  <string name="download_no_space" fuzzy="true">इस फ़ाइल को डाउनलोड करने के लिए अपर्याप्त जगह।</string>
   <string name="space_available">उपलब्ध जगह:</string>
   <string name="zim_simple">साधारण</string>
   <string name="zim_no_pic">चित्र नहीं</string>
@@ -103,7 +100,7 @@
   <string name="help_11">ZIM फाइलें जो इन-ऐप में डाउनलोड हैं, एक बाहरी फ़ोल्डर में स्थित हैं, जिसमें किवीक्स नामक एक फ़ोल्डर है।</string>
   <string name="pref_storage">संचयन</string>
   <string name="pref_current_folder">वर्तमान फोल्डर</string>
-  <string name="delete_zim_failed">क्षमा करें, हम इस फ़ाइल को हटाने में असमर्थ थे। आपको इसके बजाय एक फ़ाइल प्रबंधक का उपयोग करने का प्रयास करना चाहिए।</string>
+  <string name="delete_zim_failed">क्षमा करें हम कुछ फ़ाइलों को हटाने में असमर्थ थे।  आपको इसके बजाय फ़ाइल प्रबंधक का उपयोग करने का प्रयास करना चाहिए।</string>
   <string name="tts_pause">रुका</string>
   <string name="tts_resume">फिर से शुरू करना</string>
   <string name="stop">रोकें</string>
@@ -127,10 +124,12 @@
   <string name="time_left">बाएँ ओर</string>
   <string name="pref_external_link_popup_title">बाह्य कड़ियों में प्रवेश करने पर सावधान करें</string>
   <string name="pref_external_link_popup_summary">“अतिरिक्त खर्च एवं ऑफलाइन होने पर काम नहीं करने वाली कड़ी” से सावधान करने हेतु पॉपअप संदेश प्रदर्शित करें।</string>
-  <string name="external_link_popup_dialog_title">बहरी कड़ी में प्रवेश किया जा रहा है</string>
+  <string name="external_link_popup_dialog_title" fuzzy="true">बहरी कड़ी में प्रवेश किया जा रहा है</string>
   <string name="external_link_popup_dialog_message">आप बहरी कड़ी में प्रवेश कर रहे हैं। इसके कारण डेटा स्थानांतरण हेतु अतिरिक्त खर्च पड़ सकता है, अथवा ऑफलाइन होने पर यह काम ही नहीं करेगा। क्या आप अभी भी आगे बढ़ना चाहते हैं?</string>
   <string name="do_not_ask_anymore">आगे और ना पूछें</string>
   <string name="your_languages">चयनित भाषाएं</string>
   <string name="other_languages">अन्य भाषाएँ</string>
   <string name="no_bookmarks">बुकमार्क्स नहीं</string>
+  <string name="on">चालू</string>
+  <string name="off">बंद</string>
 </resources>

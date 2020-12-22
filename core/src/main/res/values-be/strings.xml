@@ -13,7 +13,6 @@
   <string name="save_media">Захаваць медыя як…</string>
   <string name="save_media_error">Узнікла памылка пры захаванні медыя-файла!</string>
   <string name="save_media_saved">Медыя захавана як %1$s у тэчцы вашых выяваў</string>
-  <string name="rescan_fs_warning">Пошук сярод ZIM-файлаў. Калі ласка, пачакайце…</string>
   <string name="search_label">Пошук</string>
   <string name="choose_file">Абярыце ZIM-файл (*.zim)</string>
   <string name="open_in_new_tab">Адкрыць спасылку ў новым вакенцы?</string>
@@ -21,10 +20,8 @@
   <string name="error_file_invalid">Памылка: абраны файл не з\'яўляецца слушным ZIM-файлам.</string>
   <string name="error_article_url_not_found">Памылка: загрузка артыкула не атрымалася (Url: %1$s).</string>
   <string name="pref_display_title">Паказаць</string>
-  <string name="pref_zoom_dialog">Маштаб</string>
   <string name="pref_info_title">Інфармацыя</string>
   <string name="pref_info_version">Версія</string>
-  <string name="pref_zoom_enable">Кіраванне маштабам</string>
   <string name="pref_night_mode">Начны рэжым</string>
   <string name="pref_night_mode_summary">Паказаць артыкулы з «павернутымі колерамі»</string>
   <string name="pref_back_to_top">Вярнуцца ўверх</string>

@@ -19,7 +19,6 @@
   <string name="save_media">Gardar multimedia</string>
   <string name="save_media_error">Houbo un erro ao intentar gardar o multimedia!</string>
   <string name="save_media_saved">Multimedia gardado como %s en Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Procurando contido descargable; espere…</string>
   <string name="search_label">Procurar</string>
   <string name="choose_file">Seleccione un ficheiro de contido (*.zim)</string>
   <string name="open_in_new_tab">Quere abrir a ligazón nunha nova lapela?</string>
@@ -27,17 +26,12 @@
   <string name="error_file_invalid">Erro: O ficheiro seleccionado non é un ficheiro ZIM válido.</string>
   <string name="error_article_url_not_found">Erro: Non se puido cargar o artigo (URL: %1$s).</string>
   <string name="pref_display_title">Visualización</string>
-  <string name="pref_zoom_sub_title">Zoom</string>
-  <string name="pref_zoom_dialog">Nivel de zoom</string>
   <string name="pref_info_title">Información</string>
   <string name="pref_info_version">Versión</string>
-  <string name="pref_zoom_enable">Controis do zoom</string>
   <string name="pref_night_mode">Modo nocturno</string>
   <string name="pref_night_mode_summary">Mostrar os artigos coas cores invertidas</string>
   <string name="pref_back_to_top">Volver ao inicio</string>
   <string name="pref_back_to_top_summary">Mostrar un botón ao final da páxina para volver ao inicio da mesma</string>
-  <string name="pref_hide_toolbar">Ocultar a barra de ferramentas ó desprazarse</string>
-  <string name="pref_hide_toolbar_summary">Ocultar a barra de ferramentas cando a páxina se despraza cara abaixo</string>
   <string name="pref_language_title">Lingua</string>
   <string name="pref_language_chooser">Escolla unha lingua</string>
   <string name="pref_credits">Colaboradores e licenzas</string>
@@ -51,7 +45,7 @@
   <string name="pref_clear_all_history_title">Limpar o historial</string>
   <string name="pref_clear_all_history_summary">Borrar as procuras recentes e o historial de lapelas</string>
   <string name="all_history_cleared">Borrado todo o historial</string>
-  <string name="clear_all_history_dialog_title">Borrar todo o historial</string>
+  <string name="clear_all_history_dialog_title" fuzzy="true">Borrar todo o historial</string>
   <string name="delete">Borrar</string>
   <string name="delete_specific_search_toast">Procuras recentes eliminadas</string>
   <string name="hint_contents_drawer_message">Podes deslizar á esquerda para ver os contidos deste artigo</string>
@@ -78,9 +72,9 @@
   <string name="local_zims">Dispositivo</string>
   <string name="remote_zims">En liña</string>
   <string name="library">Biblioteca</string>
-  <string name="delete_specific_zim_toast">Ficheiro eliminado</string>
+  <string name="delete_zims_toast">Ficheiro eliminado</string>
   <string name="no_files_here">Ningún ficheiro aquí</string>
-  <string name="download_no_space">Espacio insuficiente para descargar este ficheiro.</string>
+  <string name="download_no_space" fuzzy="true">Espacio insuficiente para descargar este ficheiro.</string>
   <string name="space_available">Espazo dispoñible:</string>
   <string name="zim_simple">Simple</string>
   <string name="zim_no_pic">Sen imaxes</string>
@@ -98,7 +92,7 @@
   <string name="help_11">Os ficheiros ZIM descargados na aplicación atópanse no directorio de almacenamento externo, nunha carpeta chamada Kiwix.</string>
   <string name="pref_storage">Almacenamento</string>
   <string name="pref_current_folder">Carpeta actual</string>
-  <string name="delete_zim_failed">Non podemos eliminar este ficheiro. Debería probar cun administrador de ficheiros.</string>
+  <string name="delete_zim_failed" fuzzy="true">Non podemos eliminar este ficheiro. Debería probar cun administrador de ficheiros.</string>
   <string name="tts_pause">pausa</string>
   <string name="tts_resume">continuar</string>
   <string name="stop">deter</string>
@@ -122,7 +116,7 @@
   <string name="time_left">esquerda</string>
   <string name="pref_external_link_popup_title">Avisar cando introducir ligazóns externas</string>
   <string name="pref_external_link_popup_summary">Mostra as previsualizacións de páxinas para avisar sobre os custos adicionais ou cando non funciona en ligazóns desconectadas.</string>
-  <string name="external_link_popup_dialog_title">Introducindo ligazón externa</string>
+  <string name="external_link_popup_dialog_title" fuzzy="true">Introducindo ligazón externa</string>
   <string name="external_link_popup_dialog_message">Estás introducindo unha ligazón externa. Isto pode xerar gastos por transferencia de datos ou simplemente non funcionará cando está desconectado. Aínda quere continuar?</string>
   <string name="do_not_ask_anymore">Non preguntar máis</string>
   <string name="your_languages">Linguas escollidas:</string>

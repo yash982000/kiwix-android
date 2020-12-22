@@ -18,18 +18,21 @@
 package org.kiwix.kiwixmobile.core.di.modules
 
 import dagger.Module
+import dagger.Provides
 import okhttp3.OkHttpClient
 import org.kiwix.kiwixmobile.core.data.remote.KiwixService
 import org.kiwix.sharedFunctions.MOCK_BASE_URL
+import javax.inject.Singleton
 
 /**
  * Created by mhutti1 on 14/04/17.
  */
-
 @Module
-class TestNetworkModule : NetworkModule() {
+class TestNetworkModule {
+  @Provides @Singleton fun provideOkHttpClient(): OkHttpClient = OkHttpClient()
 
-  internal override fun provideKiwixService(okHttpClient: OkHttpClient): KiwixService =
+  @Provides
+  fun provideKiwixService(okHttpClient: OkHttpClient): KiwixService =
     KiwixService.ServiceCreator.newHacklistService(
       okHttpClient,
       MOCK_BASE_URL

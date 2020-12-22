@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arya sarhan
+* Cwtiyar
 * Hzr115
 * Kurd
 * Sarchia
@@ -8,7 +9,6 @@
 * ئارام بکر
 -->
 <resources>
-  <string name="kiwi">کیوی</string>
   <string name="menu_help">یارمەتی</string>
   <string name="menu_home">ماڵەوە</string>
   <string name="menu_settings">ڕێکخستنەکان</string>
@@ -24,7 +24,6 @@
   <string name="save_media">میدیا پاشەکەوت بکە</string>
   <string name="save_media_error">ھەڵەیەک ڕوویدا لەکاتی ھەوڵدان لە خەزێنەکردنی میدیاکە!</string>
   <string name="save_media_saved">میدیا پاشەکەوتکرا وەکو %s بۆ ئەندرۆید/میدیا/org.kiwix…/</string>
-  <string name="rescan_fs_warning">پشکنین بۆ ناوەڕۆکی داگیراو، تکایە چاوەروان بە…</string>
   <string name="search_label">گەڕان</string>
   <string name="choose_file">ناوەڕۆکێکی پەڕگە ھەڵبژێرە (*.zim)</string>
   <string name="open_in_new_tab">بەستەرەکە لە تابێکی نوێدا بکرێتەوە؟</string>
@@ -33,16 +32,13 @@
   <string name="go_to_wifi_settings_label">بڕۆ بۆ ڕێکخستنەکانی وای-فای</string>
   <string name="no_books_selected_toast_message">تکایە سەرەتا کتێبەکان ھەڵبژێرە</string>
   <string name="progress_dialog_starting_server">داگیرساندنی ڕاژە</string>
-  <string name="hotspot_dialog_neutral_button">بەڵێ، دامگیرساند</string>
+  <string name="hotspot_dialog_neutral_button" fuzzy="true">بەڵێ، دامگیرساند</string>
   <string name="start_server_label">ڕاژە دابگیرسێنە</string>
   <string name="stop_server_label">ڕاژە بوەستێنە</string>
   <string name="error_article_url_not_found">ھەڵە: بارکردنی وتار (Url: %1$s) شکستی ھێنا.</string>
   <string name="pref_display_title">پیشاندان</string>
-  <string name="pref_zoom_sub_title">گەورەکردن</string>
-  <string name="pref_zoom_dialog">ئاستی گەورەکردن</string>
   <string name="pref_info_title">زانیاری</string>
   <string name="pref_info_version">وەشان</string>
-  <string name="pref_zoom_enable">جڵەوەکانی گەورەکردن</string>
   <string name="pref_night_mode">بەکەرهێنانی شەو</string>
   <string name="pref_night_mode_summary">وتارەکان بیشان بدە بە ڕەنگی پێچەوانە</string>
   <string name="pref_back_to_top">گەڕانەوە بۆ سەرەوە</string>
@@ -52,10 +48,12 @@
   <string name="pref_clear_all_history_title">سڕینەوەی مێژوو</string>
   <string name="all_history_cleared">ھەموو مێژووەکە سڕدرایەوە</string>
   <string name="pref_clear_all_bookmarks_title">خاوێنکردنەوەی نیشانەکراوەکان</string>
-  <string name="all_bookmarks_cleared">ھەموو نیشانەکراوەکان خاوێنکرانەوە</string>
-  <string name="clear_all_history_dialog_title">خاوێنکردنەوەی مێژوو</string>
+  <string name="clear_all_history_dialog_title" fuzzy="true">خاوێنکردنەوەی مێژوو</string>
   <string name="share">ھاوبەشکردن</string>
+  <string name="selected_file_cab_app_chooser_title">ھاوبەشکردنی پەڕگەی ZIM لەگەڵ:</string>
   <string name="delete">سڕینەوە</string>
+  <string name="delete_specific_search_toast">گەڕانی نوێ لابرا</string>
+  <string name="hint_contents_drawer_message">دەتوانیت دەست لەلای چەپ بدەی بۆ بینینی ناوەڕۆکەکانی ئەم وتارە</string>
   <string name="got_it">تێگەیشتم</string>
   <string name="did_you_know">دەتزانی؟</string>
   <string name="undo">پووچەڵکردنەوە</string>
@@ -75,9 +73,11 @@
   <string name="local_zims">ئامێر</string>
   <string name="remote_zims">سەرھێڵ</string>
   <string name="library">کتێبخانە</string>
-  <string name="delete_zim_body">لابردنی %s</string>
-  <string name="delete_specific_zim_toast">پەڕگە سڕدرایەوە</string>
+  <string name="delete_zim_body" fuzzy="true">لابردنی %s</string>
+  <string name="delete_zims_toast">پەڕگە سڕدرایەوە</string>
   <string name="no_files_here">ھیچ پەڕگەیەک لێرە نییە</string>
+  <string name="download">داگرتن</string>
+  <string name="space_available">بۆشایی بەردەستە:</string>
   <string name="zim_simple">سادە</string>
   <string name="zim_no_pic">بەبێ وێنە</string>
   <string name="zim_no_vid">بەبێ ڤیدیۆ</string>
@@ -137,7 +137,10 @@
   <string name="save">پاشەکەوت</string>
   <string name="note">تێبینی</string>
   <string name="wiki_article_title">ناونیشانی وتاری ویکی</string>
+  <string name="note_save_unsuccessful">تێبینی پاشەکەوتکردن سەرکەوتوو نەبوو</string>
   <string name="note_save_successful">تێبینی پاشەکەوتکرا</string>
+  <string name="note_share_error_file_missing">تێبینی پەڕگە نییە</string>
+  <string name="note_share_app_chooser_title">ھاوبەشکردنی پەڕگەی تێبینی لەگەڵ:</string>
   <string name="delete_notes_confirmation_msg">سڕینەوەی ھەموو تێبینییەکان؟</string>
   <string name="notes_deletion_unsuccessful">ھەندێک پەڕگە نەسڕدرانەوە</string>
   <string name="discovery_failed">دۆزینەوە شکستی ھێنا</string>
@@ -153,8 +156,12 @@
   <string name="tag_vid">ڤیدیۆ</string>
   <string name="tag_text_only">تەنیا دەق</string>
   <string name="tag_short_text">دەقی کورت</string>
-  <string name="go_to_settings">بڕۆ بۆ ڕێکخستنەکان</string>
+  <string name="go_to_settings" fuzzy="true">بڕۆ بۆ ڕێکخستنەکان</string>
   <string name="no_results">هیچ ئەنجامێک نییە</string>
   <string name="no_bookmarks">ھیچ نیشانکراوێک نییە</string>
   <string name="no_history">ھیچ مێژوویەک نییە</string>
+  <string name="delete_history" fuzzy="true">مێژوو دەسڕیتەوە؟</string>
+  <string name="delete_bookmarks" fuzzy="true">کتێبە دەستنیشانکراوەکان دەسڕیتەوە؟</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">زوومکردنی دەق</string>
 </resources>

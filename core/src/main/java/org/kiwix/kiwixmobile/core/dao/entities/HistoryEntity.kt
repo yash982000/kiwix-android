@@ -19,7 +19,7 @@ package org.kiwix.kiwixmobile.core.dao.entities
 
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
-import org.kiwix.kiwixmobile.core.history.HistoryListItem.HistoryItem
+import org.kiwix.kiwixmobile.core.page.history.adapter.HistoryListItem.HistoryItem
 
 @Entity
 data class HistoryEntity(
@@ -40,7 +40,7 @@ data class HistoryEntity(
     historyItem.zimFilePath,
     historyItem.favicon,
     historyItem.historyUrl,
-    historyItem.historyTitle,
+    historyItem.title,
     historyItem.dateString,
     historyItem.timeStamp
   )

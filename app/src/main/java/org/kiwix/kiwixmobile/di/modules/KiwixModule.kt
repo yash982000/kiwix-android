@@ -20,9 +20,12 @@ package org.kiwix.kiwixmobile.di.modules
 
 import android.content.Context
 import android.location.LocationManager
+import android.net.wifi.WifiManager
+import android.net.wifi.p2p.WifiP2pManager
 import dagger.Module
 import dagger.Provides
 import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil
+import org.kiwix.kiwixmobile.core.zim_manager.MountPointProducer
 import org.kiwix.kiwixmobile.di.KiwixScope
 import org.kiwix.kiwixmobile.zim_manager.Fat32Checker
 import org.kiwix.kiwixmobile.zim_manager.FileWritingFileSystemChecker
@@ -32,16 +35,30 @@ import org.kiwix.kiwixmobile.zim_manager.MountFileSystemChecker
 object KiwixModule {
   @Provides
   @KiwixScope
-  @JvmStatic
   internal fun provideLocationManager(context: Context): LocationManager =
     context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
   @Provides
   @KiwixScope
-  @JvmStatic
-  internal fun provideFat32Checker(sharedPreferenceUtil: SharedPreferenceUtil): Fat32Checker =
+  fun provideWifiManager(context: Context): WifiManager =
+    context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+
+  @Provides
+  @KiwixScope
+  internal fun provideFat32Checker(
+    sharedPreferenceUtil: SharedPreferenceUtil,
+    mountPointProducer: MountPointProducer
+  ): Fat32Checker =
     Fat32Checker(
       sharedPreferenceUtil,
-      listOf(MountFileSystemChecker(), FileWritingFileSystemChecker())
+      listOf(MountFileSystemChecker(mountPointProducer), FileWritingFileSystemChecker())
     )
+
+  @Provides
+  @KiwixScope
+  // We are forced to use the nullable type because of a
+  // crash on our nightly builds running on an emulator API 27
+  // See: https://github.com/kiwix/kiwix-android/issues/2488
+  fun providesWiFiP2pManager(context: Context): WifiP2pManager? =
+    context.getSystemService(Context.WIFI_P2P_SERVICE) as WifiP2pManager?
 }

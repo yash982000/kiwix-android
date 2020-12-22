@@ -21,57 +21,26 @@ package org.kiwix.kiwixmobile.core.search.viewmodel
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.kiwix.kiwixmobile.core.reader.SearchResult
-import org.kiwix.kiwixmobile.core.reader.ZimReaderContainer
+import org.kiwix.kiwixmobile.core.reader.ZimFileReader
 import org.kiwix.kiwixmobile.core.search.SearchSuggestion
 import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem.ZimSearchResultListItem
-import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil
 
 internal class ZimSearchResultGeneratorTest {
 
-  private val sharedPreferenceUtil: SharedPreferenceUtil = mockk()
-  private val zimReaderContainer: ZimReaderContainer = mockk(relaxed = true)
+  private val zimFileReader: ZimFileReader = mockk()
 
-  private val zimSearchResultGenerator =
-    ZimSearchResultGenerator(sharedPreferenceUtil, zimReaderContainer)
+  private val zimSearchResultGenerator: ZimSearchResultGenerator =
+    ZimSearchResultGenerator()
 
   @Test
   internal fun `empty search term returns empty list`() {
-    assertThat(zimSearchResultGenerator.generateSearchResults(""))
-      .isEqualTo(emptyList<ZimSearchResultListItem>())
-  }
-
-  @Test
-  fun `full text results removes blanks`() {
-    val searchTerm = " "
-    every { sharedPreferenceUtil.prefFullTextSearch } returns true
-    val validItem = mockk<SearchResult>()
-    val filteredItem = mockk<SearchResult>()
-    val invalidTerminalItem = mockk<SearchResult>()
-    every { zimReaderContainer.getNextResult() } returnsMany listOf(
-      validItem,
-      filteredItem,
-      invalidTerminalItem
-    )
-    val validItemTitle = "title"
-    every { validItem.title } returns validItemTitle
-    every { filteredItem.title } returns " "
-    every { invalidTerminalItem.title } returns null
-    assertThat(zimSearchResultGenerator.generateSearchResults(searchTerm))
-      .isEqualTo(listOf(ZimSearchResultListItem(validItemTitle)))
-    verify { zimReaderContainer.search(searchTerm, 200) }
-  }
-
-  @Test
-  internal fun `null search result terminates full text result sequence`() {
-    every { sharedPreferenceUtil.prefFullTextSearch } returns true
-    val searchResult = mockk<SearchResult>()
-    every { zimReaderContainer.getNextResult() } returnsMany listOf(null, searchResult)
-    every { searchResult.title } returns "title"
-    assertThat(zimSearchResultGenerator.generateSearchResults("searchTerm"))
-      .isEqualTo(emptyList<ZimSearchResultListItem>())
+    runBlocking {
+      assertThat(zimSearchResultGenerator.generateSearchResults("", zimFileReader))
+        .isEqualTo(emptyList<ZimSearchResultListItem>())
+    }
   }
 
   @Test
@@ -79,11 +48,15 @@ internal class ZimSearchResultGeneratorTest {
     val validTitle = "title"
     val searchTerm = " "
     val item = mockk<SearchSuggestion>()
-    every { sharedPreferenceUtil.prefFullTextSearch } returns false
-    every { zimReaderContainer.getNextSuggestion() } returnsMany listOf(item, item, null)
+    every { zimFileReader.searchSuggestions(" ", 200) } returns true
+    every { zimFileReader.getNextSuggestion() } returnsMany listOf(item, item, null)
     every { item.title } returns validTitle
-    assertThat(zimSearchResultGenerator.generateSearchResults(searchTerm))
-      .isEqualTo(listOf(ZimSearchResultListItem(validTitle)))
-    verify { zimReaderContainer.searchSuggestions(searchTerm, 200) }
+    runBlocking {
+      assertThat(zimSearchResultGenerator.generateSearchResults(searchTerm, zimFileReader))
+        .isEqualTo(listOf(ZimSearchResultListItem(validTitle)))
+      verify {
+        zimFileReader.searchSuggestions(searchTerm, 200)
+      }
+    }
   }
 }

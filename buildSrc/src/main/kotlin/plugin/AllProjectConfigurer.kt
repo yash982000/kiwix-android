@@ -42,12 +42,13 @@ class AllProjectConfigurer {
     target.plugins.apply("com.hiya.jacoco-android")
     target.plugins.apply("org.jlleitschuh.gradle.ktlint")
     target.plugins.apply("io.gitlab.arturbosch.detekt")
+    target.plugins.apply("androidx.navigation.safeargs")
   }
 
   fun configureBaseExtension(target: Project, path: String) {
     target.configureExtension<BaseExtension> {
       setCompileSdkVersion(Config.compileSdk)
-
+      ndkVersion = "21.3.6528147"
       defaultConfig {
         setMinSdkVersion(Config.minSdk)
         setTargetSdkVersion(Config.targetSdk)
@@ -97,10 +98,13 @@ class AllProjectConfigurer {
 
         ignore(
           "SyntheticAccessor",
+          "GoogleAppIndexingApiWarning",
+          "LockedOrientationActivity",
           //TODO stop ignoring below this
           "CheckResult",
           "LabelFor",
-          "LogConditional"
+          "LogConditional",
+          "ConvertToWebp"
         )
 
         warning(
@@ -111,7 +115,6 @@ class AllProjectConfigurer {
           "ContentDescription",
           "IconDipSize"
         )
-        baseline("${path}/lint-baseline.xml")
         lintConfig = target.rootProject.file("lintConfig.xml")
       }
       packagingOptions {
@@ -158,6 +161,10 @@ class AllProjectConfigurer {
       implementation(Libs.material)
       implementation(Libs.constraintlayout)
       implementation(Libs.multidex)
+      // navigation
+      implementation(Libs.navigation_fragment_ktx)
+      implementation(Libs.navigation_ui_ktx)
+      androidTestImplementation(Libs.navigation_testing)
       implementation(Libs.okhttp)
       implementation(Libs.logging_interceptor)
       implementation(Libs.retrofit)
@@ -181,6 +188,7 @@ class AllProjectConfigurer {
       implementation(Libs.xfetch2okhttp)
       implementation(Libs.rxandroid)
       implementation(Libs.rxjava)
+      implementation(Libs.preference_ktx)
     }
   }
 }

@@ -19,25 +19,28 @@
 package org.kiwix.kiwixmobile.settings
 
 import android.os.Bundle
-import android.os.Environment
+import androidx.core.content.ContextCompat
+import androidx.preference.Preference
+import org.kiwix.kiwixmobile.R
 import org.kiwix.kiwixmobile.core.settings.CorePrefsFragment
-import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil.PREF_LANG
-import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil.PREF_STORAGE
-import java.io.File
+import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil
+import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil.Companion.PREF_STORAGE
 
 class KiwixPrefsFragment : CorePrefsFragment() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setUpLanguageChooser(PREF_LANG)
+
+  override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+    super.onCreatePreferences(savedInstanceState, rootKey)
+    setUpLanguageChooser(SharedPreferenceUtil.PREF_LANG)
   }
 
   override fun setStorage() {
-    if (Environment.isExternalStorageEmulated()) {
-      findPreference(PREF_STORAGE).title = sharedPreferenceUtil.getPrefStorageTitle("Internal")
-    } else {
-      findPreference(PREF_STORAGE).title = sharedPreferenceUtil.getPrefStorageTitle("External")
-    }
-    findPreference(PREF_STORAGE).summary =
-      storageCalculator.calculateAvailableSpace(File(sharedPreferenceUtil.prefStorage))
+    findPreference<Preference>(PREF_STORAGE)?.title = getString(
+      if (sharedPreferenceUtil.prefStorage == internalStorage()) R.string.internal_storage
+      else R.string.external_storage
+    )
+    findPreference<Preference>(PREF_STORAGE)?.summary = storageCalculator.calculateAvailableSpace()
   }
+
+  private fun internalStorage(): String? =
+    ContextCompat.getExternalFilesDirs(requireContext(), null).firstOrNull()?.path
 }

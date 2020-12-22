@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
+* Alno
 * Derugon
 * Djiboun
+* Eneelk
 * Fitoschido
 * Gomoko
 * Kelson
+* Stephane
 * The RedBurn
 * Thibaut120094
 * Urhixidur
 * Verdy p
+* WikiLucas00
 * Wladek92
 * Yasten
 -->
 <resources>
-  <string name="kiwi">Kiwi</string>
   <string name="menu_help">Aide</string>
   <string name="menu_home">Accueil</string>
   <string name="menu_settings">Options</string>
@@ -25,11 +29,10 @@
   <string name="menu_read_aloud">Lire à haute voix</string>
   <string name="menu_read_aloud_stop">Arrêter de lire à haute voix</string>
   <string name="menu_support_kiwix">Soutenir Kiwix</string>
-  <string name="menu_host_books">Héberger des livres</string>
+  <string name="menu_host_books">Diffuser des contenus</string>
   <string name="save_media">Enregistrer le média</string>
   <string name="save_media_error">Une erreur s’est produite en essayant d’enregistrer le média !</string>
   <string name="save_media_saved">Média enregistré sous %s dans le dossier Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Recherche de contenu téléchargeable, veuillez patienter…</string>
   <string name="search_label">Rechercher</string>
   <string name="choose_file">Sélectionner un fichier de contenu (*.zim)</string>
   <string name="open_in_new_tab">Ouvrir le lien dans un nouvel onglet ?</string>
@@ -37,38 +40,38 @@
   <string name="hotspot_failed_title">Échec de démarrage du point d’accès</string>
   <string name="hotspot_failed_message">il semble que votre point d’accès soit déjà activé. Veuillez d’abord désactiver votre point d’accès WiFi  pour continuer.</string>
   <string name="go_to_wifi_settings_label">Aller aux paramètres WiFi</string>
+  <string name="connection_refused">Connexion refusée.</string>
   <string name="hotspot_running">Point d’accès WiFi actif</string>
   <string name="no_books_selected_toast_message">Veuillez d’abord choisir les livres</string>
   <string name="server_failed_message">Impossible de démarrer le serveur. Veuillez activer votre point d’accès WiFi</string>
   <string name="server_failed_toast_message">Impossible de démarrer le serveur.</string>
   <string name="server_started_successfully_toast_message">Serveur démarré avec succès.</string>
+  <string name="server_stopped_successfully_toast_message">Le serveur a été arrêté avec succès.</string>
   <string name="hotspot_turned_on">Point d’accès activé</string>
   <string name="hotspot_details_message">Voici les détails de votre point d’accès local.\nSSID : %1$s\nPasse : %2$s</string>
   <string name="server_textview_default_message">Sélectionnez les fichiers que vous voulez héberger sur le serveur</string>
   <string name="progress_dialog_starting_server">Démarrage du serveur</string>
-  <string name="hotspot_dialog_title">Activez votre point d’accès WiFi</string>
-  <string name="hotspot_dialog_message">Pour que cette fonctionnalité fonctionne, vous devez d’abord activer votre point d’accès WiFi manuellement.</string>
-  <string name="hotspot_dialog_neutral_button">OUI, JE L’AI BIEN DÉMARRÉ</string>
+  <string name="hotspot_dialog_title">Instructions pour les livres hébergeurs</string>
+  <string name="wifi_dialog_title">Connexion WiFi détectée</string>
+  <string name="wifi_dialog_body">Afin de pouvoir lire les livres sur d’autres appareils, veuillez vous assurer que tous ceux-ci sont connectés au même réseau WiFi.</string>
+  <string name="hotspot_dialog_message">Pour que cette fonctionnalité fonctionne, vous devez d’abord activer manuellement votre point d’accès WiFi ou vous assurer que l\'appareil hôte et l\'appareil récepteur appartiennent au même réseau WiFi</string>
+  <string name="hotspot_dialog_neutral_button">PROCEDER</string>
   <string name="hotspot_channel_description">Mises à jour concernant l’état de votre point d’accès/serveur.</string>
   <string name="hotspot_notification_content_title">Point d’accès Kiwix</string>
   <string name="start_server_label">Démarrer le serveur</string>
   <string name="stop_server_label">Arrêter le serveur</string>
   <string name="server_started_message">Entrez cette adresse IP dans votre navigateur pour accéder au serveur %s</string>
   <string name="error_file_not_found">Erreur : le fichier ZIM sélectionné est introuvable.</string>
+  <string name="zim_not_opened">Impossible d’ouvrir le fichier zim</string>
   <string name="error_file_invalid">Erreur : le fichier sélectionné n’est pas un fichier ZIM valide.</string>
   <string name="error_article_url_not_found">Erreur : le chargement de l’article (URL : %1$s) a échoué.</string>
   <string name="pref_display_title">Affichage</string>
-  <string name="pref_zoom_sub_title">Zoom</string>
-  <string name="pref_zoom_dialog">Niveau de zoom</string>
   <string name="pref_info_title">Information</string>
   <string name="pref_info_version">Version</string>
-  <string name="pref_zoom_enable">Contrôles du zoom</string>
   <string name="pref_night_mode">Mode nocturne</string>
   <string name="pref_night_mode_summary">Afficher les articles en couleurs inversées</string>
   <string name="pref_back_to_top">Retourner au début</string>
   <string name="pref_back_to_top_summary">Afficher un bouton en bas de la page pour revenir au début</string>
-  <string name="pref_hide_toolbar">Laisser la barre d’outils visible</string>
-  <string name="pref_hide_toolbar_summary">Masquer la barre d’outils quand la page défile vers le bas</string>
   <string name="pref_language_title">Langue</string>
   <string name="pref_language_chooser">Choisir une langue</string>
   <string name="pref_credits">Contributeurs et licences</string>
@@ -81,13 +84,14 @@
   <string name="delete_recent_search_item">Supprimer cet élément ?</string>
   <string name="pref_clear_all_history_title">Effacer l’historique</string>
   <string name="pref_clear_all_history_summary">Effacer les recherches récentes et l’historique des onglets</string>
+  <string name="pref_notes">Notes</string>
   <string name="all_history_cleared">Tout l’historique est effacé</string>
   <string name="pref_clear_all_bookmarks_title">Supprimer les marque-pages</string>
-  <string name="all_bookmarks_cleared">Tous les marque-pages ont été supprimés</string>
-  <string name="clear_all_history_dialog_title">Effacer tout l’historique</string>
+  <string name="clear_all_history_dialog_title">Effacer tout l’historique ?</string>
   <string name="share">Partager</string>
   <string name="selected_file_cab_app_chooser_title">Partager des fichiers ZIM avec :</string>
   <string name="delete">Supprimer</string>
+  <string name="cancel">Annuler</string>
   <string name="delete_specific_search_toast">Recherche récente supprimée</string>
   <string name="hint_contents_drawer_message">Vous pouvez cliquer à gauche pour voir le contenu de cet article</string>
   <string name="got_it">C’est bon !</string>
@@ -95,10 +99,10 @@
   <string name="undo">Annuler</string>
   <string name="tab_closed">Onglet fermé</string>
   <string name="bookmark_added">Marque-page ajouté</string>
-  <string name="rate_dialog_title">Veuillez nous noter</string>
+  <string name="rate_dialog_title">Merci de nous évaluer</string>
   <string name="rate_dialog_msg_1">Si vous aimez utiliser</string>
   <string name="rate_dialog_msg_2">, veuillez prendre un moment pour l’évaluer. Merci pour votre soutien !</string>
-  <string name="rate_dialog_positive">Notez !</string>
+  <string name="rate_dialog_positive">Donnez nous une note!</string>
   <string name="no_thanks">Non merci</string>
   <string name="rate_dialog_neutral">Plus tard</string>
   <string name="open">Ouvrir</string>
@@ -113,10 +117,11 @@
   <string name="local_zims">Appareil</string>
   <string name="remote_zims">En ligne</string>
   <string name="library">Bibliothèque</string>
-  <string name="delete_zim_body">Supprimer %s ?</string>
-  <string name="delete_specific_zim_toast">Fichier supprimé</string>
+  <string name="delete_zim_body">Les fichiers zim suivants seront supprimés :\n\n%s</string>
+  <string name="delete_zims_toast">Les fichiers ont bien été supprimés</string>
   <string name="no_files_here">Aucun fichier ici</string>
-  <string name="download_no_space">Espace insuffisant pour télécharger ce fichier.</string>
+  <string name="download_no_space">Espace insuffisant pour le téléchargement.</string>
+  <string name="download">Télécharger</string>
   <string name="space_available">Espace disponible :</string>
   <string name="zim_simple">Simple</string>
   <string name="zim_no_pic">Aucune image</string>
@@ -134,7 +139,7 @@
   <string name="help_11">Les fichiers ZIM téléchargés dans l’application sont situés dans le répertoire de stockage externe dans un répertoire appelé Kiwix.</string>
   <string name="pref_storage">Stockage</string>
   <string name="pref_current_folder">Dossier actuel</string>
-  <string name="delete_zim_failed">Désolé, nous sommes incapables de supprimer ce fichier. Vous devriez essayer d’utiliser plutôt un gestionnaire de fichiers.</string>
+  <string name="delete_zim_failed">Désolé, nous n\'avons pas pu supprimer certains fichiers. Vous devriez essayer d’utiliser un gestionnaire de fichiers à la place.</string>
   <string name="tts_pause">pause</string>
   <string name="tts_resume">reprendre</string>
   <string name="stop">arrêter</string>
@@ -146,6 +151,8 @@
   <string name="confirm_stop_download_msg">Êtes-vous sûr de vouloir arrêter ce téléchargement ?</string>
   <string name="download_change_storage">Sélecteur de périphérique de stockage</string>
   <string name="tts_not_enabled">La synthèse vocale n’est pas activée pour ce fichier ZIM</string>
+  <string name="texttospeech_initialization_failed">L’initialisation de Texte en Paroles a échoué. Veuillez réessayer</string>
+  <string name="texttospeech_error">Erreur inattendue dans Texte en Paroles. Veuillez réessayer</string>
   <string name="next">Suivant</string>
   <string name="previous">Précédent</string>
   <string name="wifi_only_title">Permettre le téléchargement de contenu via le réseau mobile ?</string>
@@ -160,13 +167,13 @@
   <string name="time_yesterday">Hier</string>
   <string name="pref_external_link_popup_title">Avertir lors de l’accès à des liens externes</string>
   <string name="pref_external_link_popup_summary">Afficher un dialogue pour avertir à propos de coûts supplémentaires ou de liens ne fonctionnant pas hors connexion.</string>
-  <string name="external_link_popup_dialog_title">Accès au lien externe</string>
+  <string name="external_link_popup_dialog_title">Accès au lien externe !</string>
   <string name="external_link_popup_dialog_message">Vous accédez à un lien externe. Cela peut engendrer des coûts supplémentaires pour le transfert de données ou ne fonctionnera tout simplement pas lorsque vous serez hors ligne. Voulez-vous continuer ?</string>
   <string name="do_not_ask_anymore">Ne plus demander</string>
   <string name="your_languages">Langues sélectionnées :</string>
   <string name="other_languages">Autres langues :</string>
   <string name="no_items_msg">Aucun élément disponible</string>
-  <string name="crash_title">Et bien… c’est embarrassant</string>
+  <string name="crash_title">Eh bien… c’est embarrassant</string>
   <string name="crash_description">Il semble que nous ayons planté.\n\nPourriez-vous nous aider à corriger ce problème en envoyant l’information suivante ?</string>
   <string name="crash_checkbox_language">Vos paramètres de langue</string>
   <string name="crash_checkbox_zimfiles">Une liste de vos fichiers ZIM</string>
@@ -181,7 +188,7 @@
   <string name="articleCount">%s articles</string>
   <string name="get_started">Commencer</string>
   <string name="download_books">Télécharger des livres</string>
-  <string name="human_kind_knowledge">Connaissances de l’espèce humaine, sur votre téléphone.</string>
+  <string name="humankind_knowledge">Connaissances de l’espèce humaine, sur votre téléphone.</string>
   <string name="welcome_to_the_family">Bienvenue dans la famille</string>
   <string name="save_books_offline">Enregistrer des livres hors connexion</string>
   <string name="download_books_message">Téléchargez et lisez des livres où que vous soyez.</string>
@@ -212,6 +219,8 @@
   <string name="ext_storage_permission_rationale_add_note">L’accès au stockage est nécessaire pour Notes.</string>
   <string name="ext_storage_write_permission_denied_add_note">Notes ne peut être utilisé sans accès au stockage</string>
   <string name="note_save_unsuccessful">Note enregistrée avec succès</string>
+  <string name="note_delete_successful">La note a bien été supprimée</string>
+  <string name="note_delete_unsuccessful">La note n’a pas été supprimée</string>
   <string name="note_save_successful">Note enregistrée</string>
   <string name="note_save_error_storage_not_writable">Erreur lors de la sauvegarde de la note : le stockage n’autorise pas l’écriture</string>
   <string name="note_share_error_file_missing">Le fichier de note est inexistant</string>
@@ -227,6 +236,7 @@
   <string name="severe_loss_error">Erreur sévère ! Essayez de désactiver/réactiver le pair-à-pair WiFi</string>
   <string name="connection_failed">La connexion a échoué</string>
   <string name="permission_rationale_location">L’autorisation de géolocalisation est requise par Android pour permettre à l’application de détecter des appareils à proximité.</string>
+  <string name="permission_rationale_location_on_host_zim_file">La permission d’emplacement est nécessaire sur Android pour autoriser l’appli à héberger des fichiers Zim</string>
   <string name="permission_refused_location">Impossible de trouver des appareils proches sans les autorisations de géolocalisation</string>
   <string name="permission_refused_storage">Impossible d’accéder aux fichiers ZIM sans autorisation d’accès au stockage</string>
   <string name="request_enable_location">Activer la géolocalisation pour permettre la détection d’appareils proches</string>
@@ -249,15 +259,38 @@
   <string name="status">État</string>
   <string name="pref_clear_all_notes_summary">Effacer toutes les notes sur tous les articles</string>
   <string name="pref_clear_all_notes_title">Effacer toutes les notes</string>
+  <string name="pref_text_zoom_summary">Modifier la taille du texte par incrément de 25%.</string>
   <string name="tag_pic">Image</string>
   <string name="tag_vid">Vidéo</string>
   <string name="tag_text_only">Texte seulement</string>
   <string name="tag_short_text">Texte bref</string>
   <string name="storage_permission_denied">Autorisation de stockage refusée</string>
   <string name="grant_read_storage_permission">Cette application a besoin de la possibilité de lire le stockage pour pouvoir fonctionner. Veuillez accorder le droit dans vos paramètres.</string>
-  <string name="go_to_settings">Aller aux paramètres</string>
+  <string name="go_to_settings">Aller aux paramètres de Hotspot</string>
   <string name="no_results">Aucun résultat</string>
   <string name="no_bookmarks">Aucun marque-page</string>
   <string name="no_history">Aucun historique</string>
   <string name="device_default">Appareil par défaut</string>
+  <string name="delete_history">Supprimer tout l’historique ?</string>
+  <string name="delete_selected_history">Supprimer l’historique sélectionné ?</string>
+  <string name="delete_bookmarks">Supprimer tous les signets  ?</string>
+  <string name="delete_selected_bookmarks">Supprimer les marque-pages sélectionnés ?</string>
+  <string name="on">Activé</string>
+  <string name="off">Désactivé</string>
+  <string name="auto">Automatique</string>
+  <string name="send_report">Envoyer le rapport de diagnostic</string>
+  <string name="crash_checkbox_file_system">Détails du système de fichiers</string>
+  <string name="diagnostic_report">Rapport de diagnostic</string>
+  <string name="diagnostic_report_message">Veuillez envoyer tous les détails suivants afin que nous puissions diagnostiquer le problème</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">Zoomer le texte</string>
+  <string name="search_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
+  <string name="reader">Lecteur</string>
+  <string name="no_open_book">Pas de livre ouvert</string>
+  <string name="open_library">Ouvrir la bibliothèque</string>
+  <string name="tab_restored">Onglet restauré</string>
+  <string name="open_drawer">Ouvrir le tiroir</string>
+  <string name="close_drawer">Fermer le tiroir</string>
+  <string name="how_to_update_content">Comment actualiser le contenu ?</string>
+  <string name="update_content_description">Pour mettre à jour un contenu (un fichier zim), vous devez télécharger la dernière version complète de ce même contenu. Vous pouvez le faire via la section téléchargement.</string>
 </resources>

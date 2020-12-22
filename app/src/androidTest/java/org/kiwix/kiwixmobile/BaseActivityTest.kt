@@ -29,14 +29,17 @@ import org.junit.Rule
 import org.junit.runner.RunWith
 import org.kiwix.kiwixmobile.core.di.components.DaggerTestComponent
 import org.kiwix.kiwixmobile.core.di.components.TestComponent
+import org.kiwix.kiwixmobile.main.KiwixMainActivity
 
 @RunWith(AndroidJUnit4::class)
-abstract class BaseActivityTest<T : Activity> {
+abstract class BaseActivityTest {
   @get:Rule
-  abstract var activityRule: ActivityTestRule<T>
+  open var activityRule = ActivityTestRule(KiwixMainActivity::class.java)
+
   @get:Rule
   var readPermissionRule: GrantPermissionRule =
     GrantPermissionRule.grant(permission.READ_EXTERNAL_STORAGE)
+
   @get:Rule
   var writePermissionRule: GrantPermissionRule =
     GrantPermissionRule.grant(permission.WRITE_EXTERNAL_STORAGE)

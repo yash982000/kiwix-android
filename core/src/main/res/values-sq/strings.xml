@@ -18,7 +18,6 @@
   <string name="save_media">Ruajë Median</string>
   <string name="save_media_error">Ndodhi një gabim teksa provohej të ruhej media!</string>
   <string name="save_media_saved" fuzzy="true">U ruajt media si %s te Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Po skanohet për lëndë të shkarkueshme, ju lutemi, prisni…</string>
   <string name="search_label">Kērko</string>
   <string name="choose_file">Përzgjidhni një Kartelë Lënde  (*.zim)</string>
   <string name="open_in_new_tab">Të hapet lidhja në skedë të re?</string>
@@ -26,17 +25,12 @@
   <string name="error_file_invalid">Gabim: Kartela e përzgjedhur s’është kartelë ZIM e vlefshme.</string>
   <string name="error_article_url_not_found">Gabim: Dështoi ngarkimi i artikullit (Url: %1$s).</string>
   <string name="pref_display_title">Ekran</string>
-  <string name="pref_zoom_sub_title">Zoom</string>
-  <string name="pref_zoom_dialog">Shkallë zmadhimi/zvogëlimi</string>
   <string name="pref_info_title">Informacione</string>
   <string name="pref_info_version">Version</string>
-  <string name="pref_zoom_enable">Kontrolle zmadhimi/zvogëlimi</string>
   <string name="pref_night_mode">Mënyra mbrëmje</string>
   <string name="pref_night_mode_summary">Shfaqi artikujt me ngjyra së prapthi</string>
   <string name="pref_back_to_top">Mbrapsht te Kreu</string>
   <string name="pref_back_to_top_summary">Shfaq në fund të faqes një buton për t’u ngjitur sipër në krye</string>
-  <string name="pref_hide_toolbar">Fshihe panelin gjatë rrëshqitjesh</string>
-  <string name="pref_hide_toolbar_summary">Fshihe panelin kur rrëshqitet poshtë në faqe</string>
   <string name="pref_language_title">Gjuhë</string>
   <string name="pref_language_chooser">Zgjidhni një gjuhë</string>
   <string name="pref_credits">Ndihmëtarë dhe Licenca</string>
@@ -50,7 +44,7 @@
   <string name="pref_clear_all_history_title">Pastro historikun</string>
   <string name="pref_clear_all_history_summary">Pastro historik kërkimesh dhe skedash së fundi</string>
   <string name="all_history_cleared">U pastrua Krejt Historiku</string>
-  <string name="clear_all_history_dialog_title">Pastro Krejt Historikun</string>
+  <string name="clear_all_history_dialog_title" fuzzy="true">Pastro Krejt Historikun</string>
   <string name="delete">Fshije</string>
   <string name="delete_specific_search_toast">U hoqën kërkimet së fundi</string>
   <string name="hint_contents_drawer_message">Mund ta fërkoni kah majtas që të shihni lëndën e këtij artikulli</string>
@@ -77,9 +71,9 @@
   <string name="local_zims">Pajisje</string>
   <string name="remote_zims">Në linjë</string>
   <string name="library">Bibliotekë</string>
-  <string name="delete_specific_zim_toast">Kartela u fshi</string>
+  <string name="delete_zims_toast">Kartela u fshi</string>
   <string name="no_files_here">S’ka kartela këtu</string>
-  <string name="download_no_space">Hapësirë e pamjaftueshme për shkarkimin e kësaj kartele.</string>
+  <string name="download_no_space" fuzzy="true">Hapësirë e pamjaftueshme për shkarkimin e kësaj kartele.</string>
   <string name="space_available">Hapësirë e Përdorshme:</string>
   <string name="zim_simple">I thjeshtë</string>
   <string name="zim_no_pic">S’ka Foto</string>
@@ -97,7 +91,7 @@
   <string name="help_11">Kartelat ZIM të shkarkuara brenda aplikacionit gjenden te drejtoria e depozitimit të jashtëm, në një dosje të quajtu Kiwix.</string>
   <string name="pref_storage">Depozitim</string>
   <string name="pref_current_folder">Dosja e Tanishme</string>
-  <string name="delete_zim_failed">Na ndjeni, s’qemë në gjendje ta fshinim këtë kartelë. Në vend të kësaj, duhet të provoni duke përdorur një përgjegjës kartelash.</string>
+  <string name="delete_zim_failed" fuzzy="true">Na ndjeni, s’qemë në gjendje ta fshinim këtë kartelë. Në vend të kësaj, duhet të provoni duke përdorur një përgjegjës kartelash.</string>
   <string name="tts_pause">ndalesë</string>
   <string name="tts_resume">rimerre</string>
   <string name="stop">ndale</string>
@@ -121,7 +115,7 @@
   <string name="time_left">edhe</string>
   <string name="pref_external_link_popup_title">Sinjalizo kur hyhet në lidhje të jashtme</string>
   <string name="pref_external_link_popup_summary">Shfaq një flluskë për të sinjalizuar mbi kosto shtesë ose për mosfunksionim lidhjesh “offline”</string>
-  <string name="external_link_popup_dialog_title">Po hyhet Në Lidhje të Jashtme</string>
+  <string name="external_link_popup_dialog_title" fuzzy="true">Po hyhet Në Lidhje të Jashtme</string>
   <string name="external_link_popup_dialog_message">Po hyni në një lidhje të jashtme. Kjo mund të sjellë kosto shtesë për shpërngulje të dhënash ose thjesht mund të mos funksionojë, nëse s’jeni i lidhur në internet. Doni të vazhdohet?</string>
   <string name="do_not_ask_anymore">Mos pyet më</string>
   <string name="your_languages">Gjuhë të përzgjedhura:</string>

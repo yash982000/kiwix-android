@@ -8,7 +8,6 @@
   <string name="menu_random_article">អត្ថបទចៃដន្យ</string>
   <string name="menu_full_screen">ទំហំពេញអេក្រង់</string>
   <string name="menu_exit_full_screen">ចាកចេញពីម៉ូដទំហំពេញអេក្រង់</string>
-  <string name="rescan_fs_warning">កំពុងង​ស្កេន​រក​ឯកសារ ZIM, សូម​រង់​ចាំ…</string>
   <string name="search_label">ស្វែងរក</string>
   <string name="choose_file">ជ្រើសរើសឯកសារមាតិកា ZIM (*.zim)</string>
   <string name="open_in_new_tab">បើក​តំណ​ក្នុង​ផ្ទាំង​ថ្មី?</string>
@@ -16,7 +15,6 @@
   <string name="error_file_invalid">កំហុស៖ ឯកសារ ZIM ដែលបានជ្រើសនេះ មិនមែនជាឯកសារ ZIM ត្រឹមត្រូវ។</string>
   <string name="error_article_url_not_found">កំហុស៖ ទាញយកអត្ថបទ (Url: %1$s) បានបរាជ័យ។</string>
   <string name="pref_display_title">ការ​បង្ហាញ</string>
-  <string name="pref_zoom_dialog">កម្រិត​ពង្រីក​បង្រួម</string>
   <string name="pref_info_title">ព័ត៌មាន</string>
   <string name="pref_info_version">កំណែ</string>
   <string name="pref_night_mode">ម៉ូដអានពេលយប់</string>

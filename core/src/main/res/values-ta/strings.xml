@@ -11,7 +11,6 @@
   <string name="save_media">ஊடகப்பொருளை இவ்வாறு சேமித்து வை</string>
   <string name="save_media_error">ஊடகப்பொருளை சேமிக்கும் முயற்சியில் ஒரு பிழை நேர்ந்துவிட்டது!</string>
   <string name="save_media_saved">தங்களுடைய படங்களின் கொப்புறைக்குள், ஊடகப்பொருளை இவ்வாறு %1$s சேமிக்கவும்</string>
-  <string name="rescan_fs_warning">ZIM கோப்புகளுக்காக துருவி நோக்கிக்கொண்டிருக்கிறது,தயவுசெய்து காத்‌திருக்கவும்</string>
   <string name="search_label">தேடு</string>
   <string name="choose_file">ZIM கோப்பை தேர்வு செய் (*.zim)</string>
   <string name="open_in_new_tab">இணைப்பை புதிய தாவலில் திறக்கவேண்டுமா?</string>
@@ -19,10 +18,8 @@
   <string name="error_file_invalid">பிழை: தேர்வு செய்யப்பட்ட கோப்பு, ஏற்புடைய ZIM கோப்பு அல்ல</string>
   <string name="error_article_url_not_found">பிழை: (Url: %1$s) கட்டுரையை ஏற்றித்துவங்க தவறிவிட்டது</string>
   <string name="pref_display_title">காண்பி</string>
-  <string name="pref_zoom_dialog">உரு அளவு நிலை</string>
   <string name="pref_info_title">தகவல்</string>
   <string name="pref_info_version">பதிப்பு</string>
-  <string name="pref_zoom_enable">உரு அளவு கட்டுப்படுத்திகள்</string>
   <string name="pref_night_mode">இரவுத்தோற்றம்</string>
   <string name="pref_night_mode_summary">கட்டுரைகளை தலைகீழ் நிறங்களில் காண்பி</string>
   <string name="pref_back_to_top">மேலே செல்லவும்</string>

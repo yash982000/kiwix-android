@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Macofe
 * Nike
 * Pyscowicz
@@ -7,7 +8,6 @@
 * Spude
 -->
 <resources>
-  <string name="kiwi">Kiwi</string>
   <string name="menu_help">Ohje</string>
   <string name="menu_home">Koti</string>
   <string name="menu_settings">Asetukset</string>
@@ -19,10 +19,10 @@
   <string name="menu_read_aloud">Lue ääneen</string>
   <string name="menu_read_aloud_stop">Lopeta ääneen lukeminen</string>
   <string name="menu_support_kiwix">Tue Kiwixiä</string>
+  <string name="menu_host_books">Hostaa kirjoja</string>
   <string name="save_media">Tallenna media</string>
   <string name="save_media_error">Virhe mediaa tallennettaessa!</string>
   <string name="save_media_saved">Tallennettu media %s muodossa hakemistoon Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Skannataan ladattavaa sisältöä, odota…</string>
   <string name="search_label">Hae</string>
   <string name="choose_file">Valitse sisältötiedosto (*.zim)</string>
   <string name="open_in_new_tab">Avaa linkki uudessa välilehdessä?</string>
@@ -30,10 +30,13 @@
   <string name="go_to_wifi_settings_label">Siirry WiFi-asetuksiin</string>
   <string name="no_books_selected_toast_message">Valitse ensin kirjat</string>
   <string name="server_failed_toast_message">Ei voitu käynnistää palvelinta.</string>
+  <string name="server_started_successfully_toast_message">Palvelin käynnistetty onnistuneesti.</string>
+  <string name="server_stopped_successfully_toast_message">Palvelin pysäytetty onnistuneesti.</string>
   <string name="hotspot_turned_on">Hotspot kytketty päälle</string>
   <string name="progress_dialog_starting_server">Käynnistetään palvelinta</string>
-  <string name="hotspot_dialog_title">Kytke WiFi-hotspottisi päälle</string>
-  <string name="hotspot_dialog_neutral_button">KYLLÄ, OLEN KYTKENYT SEN PÄÄLLE</string>
+  <string name="hotspot_dialog_title">Ohjeet kirjojen hostaamiseen</string>
+  <string name="wifi_dialog_title">WiFi-yhteys tunnistettu</string>
+  <string name="hotspot_dialog_neutral_button">ETENE</string>
   <string name="hotspot_notification_content_title">Kiwix-hotspot</string>
   <string name="start_server_label">Käynnistä palvelin</string>
   <string name="stop_server_label">Pysäytä palvelin</string>
@@ -41,16 +44,12 @@
   <string name="error_file_invalid">Virhe: valittu tiedosto ei ole kelvollinen ZIM-tiedosto.</string>
   <string name="error_article_url_not_found">Virhe: Artikkelin (Url: %1$s) lataus epäonnistui.</string>
   <string name="pref_display_title">Näytä</string>
-  <string name="pref_zoom_sub_title">Zoomaa</string>
-  <string name="pref_zoom_dialog">Zoomaustaso</string>
   <string name="pref_info_title">Tiedot</string>
   <string name="pref_info_version">Versio</string>
-  <string name="pref_zoom_enable">Zoomaussäätimet</string>
   <string name="pref_night_mode">Yötila</string>
   <string name="pref_night_mode_summary">Näytä artikkelit käänteisillä väreillä</string>
   <string name="pref_back_to_top">Takaisin alkuun</string>
   <string name="pref_back_to_top_summary">Näytä painike sivun lopussa rullataksesi ylös alkuun</string>
-  <string name="pref_hide_toolbar">Pidä työkalupalkki näkyvissä</string>
   <string name="pref_language_title">Kieli</string>
   <string name="pref_language_chooser">Valitse kieli</string>
   <string name="pref_credits">Avustajat ja lisenssit</string>
@@ -63,9 +62,11 @@
   <string name="delete_recent_search_item">Poista tämä kohde?</string>
   <string name="pref_clear_all_history_title">Tyhjennä historia</string>
   <string name="all_history_cleared">Kaikki historia tyhjennetty</string>
-  <string name="clear_all_history_dialog_title">Tyhjennä kaikki historia</string>
+  <string name="pref_clear_all_bookmarks_title">Tyhjennä kirjanmerkit</string>
+  <string name="clear_all_history_dialog_title">Tyhjennä kaikki historia?</string>
   <string name="share">Jaa</string>
   <string name="delete">Poista</string>
+  <string name="cancel">Peruuta</string>
   <string name="hint_contents_drawer_message">Voit tarkastella tämän artikkelin sisältöä pyyhkäisemällä vasemmalle</string>
   <string name="got_it">Selvä</string>
   <string name="did_you_know">Tiesitkö?</string>
@@ -90,9 +91,10 @@
   <string name="local_zims">Laite</string>
   <string name="remote_zims">Online</string>
   <string name="library">Kirjasto</string>
-  <string name="delete_zim_body">Poista %s?</string>
-  <string name="delete_specific_zim_toast">Tiedosto poistettu</string>
+  <string name="delete_zim_body">Seuraava(t) zim-tiedosto(t) tullaan poistamaan:\n\n%s</string>
+  <string name="delete_zims_toast">Tiedosto poistettu</string>
   <string name="no_files_here">Ei tiedostoja täällä</string>
+  <string name="download">Lataa</string>
   <string name="space_available">Tilaa käytettävissä:</string>
   <string name="zim_simple">Yksinkertainen</string>
   <string name="zim_no_pic">Ei kuvia</string>
@@ -105,7 +107,7 @@
   <string name="help_9">• Muut sisällöt kuten Wikileaks tai Wikiaineisto ovat myös käytettävissä</string>
   <string name="pref_storage">Tallennuslaite</string>
   <string name="pref_current_folder">Nykyinen kansio</string>
-  <string name="delete_zim_failed">Emme pystyneet poistamaan tätä tiedostoa. Sinun pitäisi kokeilla käyttää tiedostonhallintaa sen sijaan.</string>
+  <string name="delete_zim_failed">Emme pystyneet poistamaan joitakin tiedostoja. Sinun tulisi kokeilla käyttää tiedostonhallintaa sen sijaan.</string>
   <string name="tts_pause">keskeytä</string>
   <string name="tts_resume">jatka</string>
   <string name="stop">pysäytä</string>
@@ -128,7 +130,7 @@
   <string name="time_left">jäljellä</string>
   <string name="time_today">Tänään</string>
   <string name="time_yesterday">Eilen</string>
-  <string name="external_link_popup_dialog_title">Ulkoisen linkin syöttäminen</string>
+  <string name="external_link_popup_dialog_title">Ulkoisen linkin syöttäminen!</string>
   <string name="do_not_ask_anymore">Älä kysy enää</string>
   <string name="your_languages">Valitut kielet:</string>
   <string name="other_languages">Muut kielet:</string>
@@ -143,7 +145,7 @@
   <string name="articleCount">%s artikkelia</string>
   <string name="get_started">Aloittaminen</string>
   <string name="download_books">Lataa kirjoja</string>
-  <string name="human_kind_knowledge">Ihmiskunnan tieto puhelimessasi.</string>
+  <string name="humankind_knowledge">Ihmiskunnan tieto puhelimessasi.</string>
   <string name="welcome_to_the_family">Tervetuloa perheeseen</string>
   <string name="save_books_offline">Tallenna kirjoja offline-tilassa</string>
   <string name="unable_to_add_to_bookmarks">Ei voitu lisätä kirjanmerkkeihin</string>
@@ -166,8 +168,25 @@
   <string name="wiki_article_title">Wikiartikkelin otsikko</string>
   <string name="confirmation_alert_dialog_message">Hylkää tallentamattomat muutokset?</string>
   <string name="notes_deletion_unsuccessful">Joitakin tiedostoja ei poistettu</string>
+  <string name="books_count">%d kirja(a)</string>
   <string name="your_device">Laitteesi:</string>
   <string name="nearby_devices">LÄHELLÄ OLEVAT LAITTEET</string>
   <string name="status">Tila</string>
+  <string name="tag_pic">Kuva</string>
+  <string name="tag_vid">Video</string>
+  <string name="tag_text_only">Vain teksti</string>
+  <string name="tag_short_text">Lyhyt teksti</string>
+  <string name="no_results">Ei tuloksia</string>
   <string name="no_bookmarks">Ei kirjanmerkkejä</string>
+  <string name="no_history">Ei historiaa</string>
+  <string name="device_default">Laitteen oletus</string>
+  <string name="delete_history">Poista kaikki historia?</string>
+  <string name="delete_selected_history">Poista valittu historia?</string>
+  <string name="delete_bookmarks">Poista kaikki kirjanmerkit?</string>
+  <string name="delete_selected_bookmarks">Poista valitut kirjanmerkit?</string>
+  <string name="on">Päälle</string>
+  <string name="off">Pois</string>
+  <string name="auto">Auto</string>
+  <string name="percentage">%d%%</string>
+  <string name="search_open_in_new_tab">Avaa uudessa välilehdessä</string>
 </resources>

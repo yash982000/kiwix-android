@@ -25,8 +25,9 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import org.kiwix.kiwixmobile.core.ViewModelFactory
 import org.kiwix.kiwixmobile.core.di.ViewModelKey
+import org.kiwix.kiwixmobile.core.page.bookmark.viewmodel.BookmarkViewModel
+import org.kiwix.kiwixmobile.core.page.history.viewmodel.HistoryViewModel
 import org.kiwix.kiwixmobile.core.search.viewmodel.SearchViewModel
-import javax.inject.Singleton
 
 @Module
 abstract class CoreViewModelModule {
@@ -36,7 +37,16 @@ abstract class CoreViewModelModule {
   abstract fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
 
   @Binds
-  @Singleton
   abstract fun bindViewModelFactory(factory: ViewModelFactory):
     ViewModelProvider.Factory
+
+  @Binds
+  @IntoMap
+  @ViewModelKey(HistoryViewModel::class)
+  abstract fun bindHistoryViewModel(historyViewModel: HistoryViewModel): ViewModel
+
+  @Binds
+  @IntoMap
+  @ViewModelKey(BookmarkViewModel::class)
+  abstract fun bindBookmarksViewModel(bookmarksViewModel: BookmarkViewModel): ViewModel
 }

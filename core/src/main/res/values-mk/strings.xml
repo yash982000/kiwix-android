@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Bjankuloski06
 -->
 <resources>
-  <string name="kiwi">Киви</string>
   <string name="menu_help">Помош</string>
   <string name="menu_home">Почетна</string>
   <string name="menu_settings">Поставки</string>
@@ -19,7 +19,6 @@
   <string name="save_media">Зачувај медиум</string>
   <string name="save_media_error">Настана грешка при зачувувањето на податотеката!</string>
   <string name="save_media_saved">Податотеката е зачувана како %s во Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Пребарувам преземлива содржина. Почекајте…</string>
   <string name="search_label">Пребарај</string>
   <string name="choose_file">Изберете содржинска податотека (*.zim)</string>
   <string name="open_in_new_tab">Да ја отворам врската во ново јазиче?</string>
@@ -27,38 +26,38 @@
   <string name="hotspot_failed_title">Не успеав да ја покренам пристапната точка</string>
   <string name="hotspot_failed_message">Се чини дека точката за безжичен пристап е веќе вклучена. Исклучете ја за да продолжите.</string>
   <string name="go_to_wifi_settings_label">Оди во поставките за безжичен пристап</string>
+  <string name="connection_refused">Поврзувањето е одбиено.</string>
   <string name="hotspot_running">Активна пристапна точка</string>
   <string name="no_books_selected_toast_message">Најпрвин одберете книги</string>
   <string name="server_failed_message">Не можев да го покренам опслужувачот. Вклучете ја пристапната точка</string>
   <string name="server_failed_toast_message">Не можев да го покренам опслужувачот.</string>
   <string name="server_started_successfully_toast_message">Опслужувачот е успешно покренат.</string>
+  <string name="server_stopped_successfully_toast_message">Опслужувачот е успешно запрен.</string>
   <string name="hotspot_turned_on">Пристапната точка е вклучена</string>
   <string name="hotspot_details_message">Следат поединости за вашата месна точка на пристап. \nSSID : %1$s \nЛозинка : %2$s</string>
   <string name="server_textview_default_message">Изберете ги податотеките што сакате да ги вдомите на опслужувачот</string>
   <string name="progress_dialog_starting_server">Го покренувам опслужувачот</string>
-  <string name="hotspot_dialog_title">Вклучете ја вашата точка на безжичнен пристап</string>
-  <string name="hotspot_dialog_message">За да работи оваа можност, најпрвин ќе треба рачно да ја вклучите точката за безжичен пристап.</string>
-  <string name="hotspot_dialog_neutral_button">ДА, ЈА ВКЛУЧИВ</string>
+  <string name="hotspot_dialog_title">Напатствија за вдомување на книги</string>
+  <string name="wifi_dialog_title">Пронајдена е безжична врска</string>
+  <string name="wifi_dialog_body">За да ги читате книгите на други уреди, проверете дали сите тие се поврзани на истата безжична мрежа.</string>
+  <string name="hotspot_dialog_message">За да работи оваа можност, најпрвин ќе треба точката за безжичен пристап да ја вклучите рачно, или да се осигурате дека уредот-домаќин и уредот-приемник се на истата безжична мрежа</string>
+  <string name="hotspot_dialog_neutral_button">ПРОДОЛЖИ</string>
   <string name="hotspot_channel_description">Известувања за состојбата на вашата пристапна точка/опслужувач.</string>
   <string name="hotspot_notification_content_title">Пристапна точка на Кивикс</string>
   <string name="start_server_label">Покрени го опслужувачот</string>
   <string name="stop_server_label">Запри го опслужувачот</string>
   <string name="server_started_message">Внесете ја оваа IP-адреса во прелистувачот за да пристапите на опслужувачот %s</string>
   <string name="error_file_not_found">Грешка: Не ја најдов избраната ZIM-податотека.</string>
+  <string name="zim_not_opened">Не можам да ја отворам ZIM-податотеката</string>
   <string name="error_file_invalid">Грешка: Одбраната податотека не е вежачка ZIM-податотека.</string>
   <string name="error_article_url_not_found">Грешка: Не успеав да ја вчитам статијата (URL: %1$s).</string>
   <string name="pref_display_title">Приказник</string>
-  <string name="pref_zoom_sub_title">Размер</string>
-  <string name="pref_zoom_dialog">Приближеност</string>
   <string name="pref_info_title">Информации</string>
   <string name="pref_info_version">Верзија</string>
-  <string name="pref_zoom_enable">Контроли за размер</string>
   <string name="pref_night_mode">Ноќен режим</string>
   <string name="pref_night_mode_summary">Прикажувај ги статиите во обратни бои</string>
   <string name="pref_back_to_top">Најгоре</string>
   <string name="pref_back_to_top_summary">Прикажувај копче за враќање најгоре на крајот од страницата</string>
-  <string name="pref_hide_toolbar">Скриј го алатникот при лизгање</string>
-  <string name="pref_hide_toolbar_summary">Скриј го алатникот кога при надолно лизгање по страницата</string>
   <string name="pref_language_title">Јазик</string>
   <string name="pref_language_chooser">Изберете јазик</string>
   <string name="pref_credits">Учесници и лиценци</string>
@@ -71,13 +70,14 @@
   <string name="delete_recent_search_item">Да ја избришам ставкава?</string>
   <string name="pref_clear_all_history_title">Исчисти историја</string>
   <string name="pref_clear_all_history_summary">Исчисти скорешни пребарувања и јазичиња</string>
+  <string name="pref_notes">Белешки</string>
   <string name="all_history_cleared">Сета историја е исчистена</string>
   <string name="pref_clear_all_bookmarks_title">Исчисти обележувачи</string>
-  <string name="all_bookmarks_cleared">Сите обележувачи се исчистени</string>
-  <string name="clear_all_history_dialog_title">Исчисти ја сета историја</string>
+  <string name="clear_all_history_dialog_title">Да ја исчистам сета историја</string>
   <string name="share">Сподели</string>
   <string name="selected_file_cab_app_chooser_title">Сподели ZIM-податотеки со:</string>
   <string name="delete">Избриши</string>
+  <string name="cancel">Откажи</string>
   <string name="delete_specific_search_toast">Скорешните пребарувања се отстранети</string>
   <string name="hint_contents_drawer_message">Можете да повлечете налево за да ја погледате содржината на статијава</string>
   <string name="got_it">Јасно</string>
@@ -103,10 +103,11 @@
   <string name="local_zims">Уред</string>
   <string name="remote_zims">На линија</string>
   <string name="library">Библиотека</string>
-  <string name="delete_zim_body">Да го избришам %s?</string>
-  <string name="delete_specific_zim_toast">Податотеката е избришана</string>
+  <string name="delete_zim_body">Ќе бидат избришани следниве ZIM-податотеки:\n\n%s</string>
+  <string name="delete_zims_toast">Податотеката е успешно избришана</string>
   <string name="no_files_here">Нема податотеки</string>
-  <string name="download_no_space">Немате доволно место за преземање на податотекава.</string>
+  <string name="download_no_space">Нема доволно место за преземање.</string>
+  <string name="download">Преземи</string>
   <string name="space_available">Достапен простор:</string>
   <string name="zim_simple">Просто</string>
   <string name="zim_no_pic">Без слики</string>
@@ -124,7 +125,7 @@
   <string name="help_11">Преземањето на ZIM-податотеките во прилогот се сместени во надворешниот склад во папка наречена Kiwix.</string>
   <string name="pref_storage">Склад</string>
   <string name="pref_current_folder">Тековна папка</string>
-  <string name="delete_zim_failed">За жал, не можев да ја избришам податотеката. Пробајте со Управувачот со податотеки.</string>
+  <string name="delete_zim_failed">За жал, не можев да избришам извесни податотеки. Пробајте со Управувачот со податотеки.</string>
   <string name="tts_pause">паузирај</string>
   <string name="tts_resume">продолжи</string>
   <string name="stop">запри</string>
@@ -136,6 +137,8 @@
   <string name="confirm_stop_download_msg">Дали сте сигурни дека сакате да го запрете преземањево?</string>
   <string name="download_change_storage">Избор на складишник</string>
   <string name="tts_not_enabled">Претворањето текст во говор не е овозможено за оваа ZIM-податотека</string>
+  <string name="texttospeech_initialization_failed">Не успеав да го покренам „Текст во говор“. Обидете се повторно.</string>
+  <string name="texttospeech_error">Се јави неочекувана грешка во „Текст во говор“. Обидете се повторно.</string>
   <string name="next">Следно</string>
   <string name="previous">Претходно</string>
   <string name="wifi_only_title">Дозволувате преземање на содржини преку мобилна мрежа?</string>
@@ -150,7 +153,7 @@
   <string name="time_yesterday">Вчера</string>
   <string name="pref_external_link_popup_title">Предупреди ме кога се внесуваат надворешни врски</string>
   <string name="pref_external_link_popup_summary">Прикажи отскочници со предупредување за дополнителни трошоци или неработа во вонмрежни врски.</string>
-  <string name="external_link_popup_dialog_title">Внесување на надворешна врска</string>
+  <string name="external_link_popup_dialog_title">Внесувате надворешна врска!</string>
   <string name="external_link_popup_dialog_message">Внесувате надворешна врска. Ова може да доведе до дополнителни трошоци за податочен пренос или пак просто нема да работи кога не сте на линија. Дали сакате да продолжите?</string>
   <string name="do_not_ask_anymore">Повеќе не прашувај</string>
   <string name="your_languages">Избрани јазици:</string>
@@ -171,7 +174,7 @@
   <string name="articleCount">%s статии</string>
   <string name="get_started">Започни</string>
   <string name="download_books">Преземи книги</string>
-  <string name="human_kind_knowledge">Севкупното знаење на човештвото, на вашиот телефон.</string>
+  <string name="humankind_knowledge">Севкупното знаење на човештвото, на вашиот телефон.</string>
   <string name="welcome_to_the_family">Добре дојдовте во семејството</string>
   <string name="save_books_offline">Зачувај книги вонмрежно</string>
   <string name="download_books_message">Преземајте книги и читајте ги каде и да сте.</string>
@@ -202,6 +205,8 @@
   <string name="ext_storage_permission_rationale_add_note">Белешките бараат пристап до складот</string>
   <string name="ext_storage_write_permission_denied_add_note">Не можете да користите белешки без пристап до складот</string>
   <string name="note_save_unsuccessful">Не успеав да ја зачувам белешката</string>
+  <string name="note_delete_successful">Белешката е успешно избришана</string>
+  <string name="note_delete_unsuccessful">Белешката не е избришана</string>
   <string name="note_save_successful">Белешката е зачувана</string>
   <string name="note_save_error_storage_not_writable">Напомена пред грешка: Не можам да запишам во складот</string>
   <string name="note_share_error_file_missing">Податотеката со белешката не постои</string>
@@ -217,6 +222,7 @@
   <string name="severe_loss_error">Голема грешка! Исклучете го и пак вклучете го поврзувањето на уреди со безжичен пристап</string>
   <string name="connection_failed">Врската е прекината</string>
   <string name="permission_rationale_location">Андроид бара дозвола за местоположба за да му даде на прилогот да пронаоѓа уреди за сврзување</string>
+  <string name="permission_rationale_location_on_host_zim_file">Андроид бара дозвола за местоположба за да му даде на прилогот да вдомува ZIM-податотеки</string>
   <string name="permission_refused_location">Не можам да пронаоѓам уреди за сврзување без дозвола за местоположба</string>
   <string name="permission_refused_storage">Не можам да дојдам до ZIM-податотеките без дозвола за складирање</string>
   <string name="request_enable_location">Овозможете местоположба за да можам да пронаоѓам уреди за сврзување</string>
@@ -239,15 +245,38 @@
   <string name="status">Состојба</string>
   <string name="pref_clear_all_notes_summary">Ги чисти сите белешки на сите статии</string>
   <string name="pref_clear_all_notes_title">Исчисти ги сите белешки</string>
+  <string name="pref_text_zoom_summary">Промени големина на текст во стапки од 25 %.</string>
   <string name="tag_pic">Слика</string>
   <string name="tag_vid">Видео</string>
   <string name="tag_text_only">Само текст</string>
   <string name="tag_short_text">Краток текст</string>
   <string name="storage_permission_denied">Дозволата за складирање е одбиена</string>
   <string name="grant_read_storage_permission">Прилогов бара пристап до складот за да работи. Дајте му ја таа дозвола во поставките</string>
-  <string name="go_to_settings">Оди во поставките</string>
+  <string name="go_to_settings">Оди во поставките за пристапни точки</string>
   <string name="no_results">Нема исход</string>
   <string name="no_bookmarks">Нема обележувачи</string>
   <string name="no_history">Нема историја</string>
   <string name="device_default">Основно на уредот</string>
+  <string name="delete_history">Да ја избришам сета историја?</string>
+  <string name="delete_selected_history">Да ја избришам избраната историја?</string>
+  <string name="delete_bookmarks">Да ги избришам сите обележувачи?</string>
+  <string name="delete_selected_bookmarks">Да ги избришам избраните обележувачи?</string>
+  <string name="on">Вкл.</string>
+  <string name="off">Искл.</string>
+  <string name="auto">Авто</string>
+  <string name="send_report">Испрати дијагностички извештај</string>
+  <string name="crash_checkbox_file_system">Поединости за податотечниот систем</string>
+  <string name="diagnostic_report">Дијагностички извештај</string>
+  <string name="diagnostic_report_message">Испратете ги сите следни поединости за да можеме да го дијагностицираме проблемот</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">Приближување на текст</string>
+  <string name="search_open_in_new_tab">Отвори во ново јазиче</string>
+  <string name="reader">Читач</string>
+  <string name="no_open_book">Нема отворена книга</string>
+  <string name="open_library">Отворена библиотека</string>
+  <string name="tab_restored">Јазичето е повратено</string>
+  <string name="open_drawer">Отвори фиока</string>
+  <string name="close_drawer">Затвори фиока</string>
+  <string name="how_to_update_content">Како се подновува содржината?</string>
+  <string name="update_content_description">За да ја подновите содржината (ZIM-поатотека) ќе треба да ја преземете последната полна верзија на истава содржина. Ова се прави во одделот за преземање.</string>
 </resources>

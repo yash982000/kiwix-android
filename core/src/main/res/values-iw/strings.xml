@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Amire80
 * Ghsuvr
 * Guycn2
 * IKhitron
 * Steeve815
+* Tuvalevsku
 * YaronSh
 * יאיר מן
+* ישראל קלר
 -->
 <resources>
-  <string name="kiwi">קיווי</string>
   <string name="menu_help">עזרה</string>
   <string name="menu_home">בית</string>
   <string name="menu_settings">הגדרות</string>
@@ -25,7 +27,6 @@
   <string name="save_media">שמירת מדיה</string>
   <string name="save_media_error">אירעה שגיאה בעת ניסיון לשמור את המדיה!</string>
   <string name="save_media_saved">המדיה נשמרה בתור %s אל Android/media/org.kiwix…/‎</string>
-  <string name="rescan_fs_warning">מתבצעת סריקה לאיתור תכנים הניתנים להורדה, נא להמתין…</string>
   <string name="search_label">חיפוש</string>
   <string name="choose_file">בחירת קובץ תוכן (‎*.zim)</string>
   <string name="open_in_new_tab">לפתוח קישור בלשונית חדשה?</string>
@@ -33,38 +34,38 @@
   <string name="hotspot_failed_title">הפעלת נקודת חיבור לא עבדה</string>
   <string name="hotspot_failed_message">נראה שנקודת החיבור כבר מופעלת אצלך. נא לכבות את נקודת החיבור שלך כדי להמשיך.</string>
   <string name="go_to_wifi_settings_label">לעבור להגדרות וייפיי</string>
+  <string name="connection_refused">החיבור סורב.</string>
   <string name="hotspot_running">נקודת החיבור פועלת</string>
   <string name="no_books_selected_toast_message">נא לבחור ספרים קודם</string>
   <string name="server_failed_message">לא היה אפשר להתחיל את השרת. נא להפעיל את נקודת החיבור שלך</string>
   <string name="server_failed_toast_message">לא היה אפשר להריץ את השרת.</string>
   <string name="server_started_successfully_toast_message">השרת הופעל בהצלחה.</string>
+  <string name="server_stopped_successfully_toast_message">השרת נעצר בהצלחה.</string>
   <string name="hotspot_turned_on">נקודת החיבור הופעלה</string>
   <string name="hotspot_details_message">להלן הפרטים של נקודת החיבור המקומית שלך.\nSSID : %1$s \nPass : %2$s</string>
   <string name="server_textview_default_message">נא לבחור את הקבצים שברצונך לארח בשרת</string>
   <string name="progress_dialog_starting_server">הרצת השרת</string>
-  <string name="hotspot_dialog_title">הפעלת נקודת חיבור הווייפיי שלך</string>
-  <string name="hotspot_dialog_message">כדי שהאפשרות הזאת תעבוד, צריך קודם להפעיל את נקודת חיבור הווייפיי שלך ידנית.</string>
-  <string name="hotspot_dialog_neutral_button">כן, הפעלתי אותה</string>
+  <string name="hotspot_dialog_title">הנחיות לאירוח ספרים</string>
+  <string name="wifi_dialog_title">חיבור WiFi אותר</string>
+  <string name="wifi_dialog_body">כדי לצפות בספרים במכשירים אחרים, נא לוודא שכל המכשירים מחוברים לאותה הרשת האלחוטית.</string>
+  <string name="hotspot_dialog_message">כדי שהאפשרות הזאת תוכל לפעול עליך להפעיל את הנקודה החמה ידנית או לוודא שמכשירי האירוח והקבלה הם באותה רשת אלחוטית.</string>
+  <string name="hotspot_dialog_neutral_button">להמשיך</string>
   <string name="hotspot_channel_description">עדכונים על מצב נקודת החיבור והשרת שלך.</string>
   <string name="hotspot_notification_content_title">נקודת חיבור של קיוויקס</string>
   <string name="start_server_label">הרצת השרת</string>
   <string name="stop_server_label">כיבוי השרת</string>
   <string name="server_started_message">יש להזין את כתובת ה־IP הזאת לדפדפן שלך כדי לגשת לשרת %s</string>
   <string name="error_file_not_found">שגיאה: קובץ ה־ZIM שנבחר לא נמצא.</string>
+  <string name="zim_not_opened">לא ניתן לפתוח את קובץ ה־zim</string>
   <string name="error_file_invalid">שגיאה: הקובץ שנבחר אינו קובץ ZIM תקין.</string>
   <string name="error_article_url_not_found">שגיאה: טעינת הערך נכשלה (כתובת: %1$s).</string>
   <string name="pref_display_title">תצוגה</string>
-  <string name="pref_zoom_sub_title">תקריב</string>
-  <string name="pref_zoom_dialog">רמת תקריב</string>
   <string name="pref_info_title">מידע</string>
   <string name="pref_info_version">גרסה</string>
-  <string name="pref_zoom_enable">בקרת תקריב</string>
   <string name="pref_night_mode">מצב לילה</string>
   <string name="pref_night_mode_summary">הצגת ערכים עם צבעים הפוכים</string>
   <string name="pref_back_to_top">חזרה למעלה</string>
   <string name="pref_back_to_top_summary">הצגת כפתור בסוף העמוד לגלילה למעלה</string>
-  <string name="pref_hide_toolbar">הסתרת סרגל הכלים בעת גלילה</string>
-  <string name="pref_hide_toolbar_summary">הסתר את סרגל הכלים בעת גלילה לתחתית הדף</string>
   <string name="pref_language_title">שפה</string>
   <string name="pref_language_chooser">בחירת שפה</string>
   <string name="pref_credits">תורמים ורשיונות</string>
@@ -77,11 +78,14 @@
   <string name="delete_recent_search_item">למחוק את הפריט הזה?</string>
   <string name="pref_clear_all_history_title">ניקוי ההיסטוריה</string>
   <string name="pref_clear_all_history_summary">ניקוי מילות חיפוש קודמות והיסטוריית כרטיסיות</string>
+  <string name="pref_notes">הערות</string>
   <string name="all_history_cleared">כל ההיסטוריה נמחקה</string>
-  <string name="clear_all_history_dialog_title">מחיקת כל ההיסטוריה</string>
+  <string name="pref_clear_all_bookmarks_title">ניקוי סימניות</string>
+  <string name="clear_all_history_dialog_title">לנקות את כל ההיסטוריה?</string>
   <string name="share">שיתוף</string>
   <string name="selected_file_cab_app_chooser_title">שיתוף קובצי ZIM עם:</string>
   <string name="delete">מחיקה</string>
+  <string name="cancel">ביטול</string>
   <string name="delete_specific_search_toast">חיפוש עבר הוסר</string>
   <string name="hint_contents_drawer_message">ניתן לגרור שמאל כדי לצפות בתוכן הערך הזה</string>
   <string name="got_it">הבנתי</string>
@@ -107,10 +111,11 @@
   <string name="local_zims">מכשיר</string>
   <string name="remote_zims">מקוון</string>
   <string name="library">ספרייה</string>
-  <string name="delete_zim_body">למחוק את %s?</string>
-  <string name="delete_specific_zim_toast">הקובץ נמחק</string>
+  <string name="delete_zim_body">קובצי ה־zim הבאים יימחקו:\n\n%s</string>
+  <string name="delete_zims_toast">הקבצים נמחקו בהצלחה</string>
   <string name="no_files_here">אין כאן קבצים</string>
-  <string name="download_no_space">אין מספיק מקום כדי להוריד את הקובץ הזה.</string>
+  <string name="download_no_space">אין מספיק מקום להורדה.</string>
+  <string name="download">הורדה</string>
   <string name="space_available">נפח זמין:</string>
   <string name="zim_simple">פשוט</string>
   <string name="zim_no_pic">אין תמונות</string>
@@ -125,10 +130,10 @@
   <string name="help_8">• ויקיפדיה זמינה באופן נפרד לכל שפה</string>
   <string name="help_9">• ישנם מקורות נוספים זמינים כגון ויקיליקס או ויקיטקסט.</string>
   <string name="help_10">באפשרותך להוריד את קובצי ה־ZIM שנבחרו מתוך היישום או לחלופין לבחור בזהירות בקובץ אחד או מספר קבצים שאתה רוצה ולהוריד ממחשב שולחני לפני העברת קובצי ה־ZIM לכרטיס ה־SD שלך.</string>
-  <string name="help_11">קבצי ה-ZIM המורדים דרך האפליקציה נמצאים בספריית האחסון החיצוני בתוך תיקייה בשם Kiwix.</string>
+  <string name="help_11">קובצי ה־ZIM המורדים דרך היישום נמצאים בספריית האחסון החיצוני בתוך תיקייה בשם Kiwix.</string>
   <string name="pref_storage">אחסון</string>
   <string name="pref_current_folder">תיקייה נוכחית</string>
-  <string name="delete_zim_failed">לא הצלחנו למחוק את הקובץ הזה. עליך לנסות להשתמש במנהל קבצים במקום זאת, עמך הסליחה.</string>
+  <string name="delete_zim_failed">לא הצלחנו למחוק קבצים מסוימים. עליך לנסות להשתמש במנהל קבצים במקום זאת, עמך הסליחה.</string>
   <string name="tts_pause">השהיה</string>
   <string name="tts_resume">המשך</string>
   <string name="stop">עצירה</string>
@@ -140,6 +145,8 @@
   <string name="confirm_stop_download_msg">לעצור את ההורדה הזאת?</string>
   <string name="download_change_storage">בורר התקני אחסון</string>
   <string name="tts_not_enabled">טקסט לדיבור אינו זמין עבור קובץ ZIM זה</string>
+  <string name="texttospeech_initialization_failed">האתחול של טקסט לדיבור נכשל. נא לנסות שוב</string>
+  <string name="texttospeech_error">שגיאה בלתי־צפויה בטקסט לדיבור. נא לנסות שוב</string>
   <string name="next">הבא</string>
   <string name="previous">הקודם</string>
   <string name="wifi_only_title">לאפשר הורדת תוכן דרך רשת סלולרית?</string>
@@ -154,7 +161,7 @@
   <string name="time_yesterday">אתמול</string>
   <string name="pref_external_link_popup_title">תן אזהרה בעת כניסה לקישורים חיצוניים</string>
   <string name="pref_external_link_popup_summary">הצגת בועת אזהרה על תשלומים נוספים או כאשר אין אפשרות עבודה עם קישורים לא-מקוונים.</string>
-  <string name="external_link_popup_dialog_title">העברה לקישור חיצוני</string>
+  <string name="external_link_popup_dialog_title">העברה לקישור חיצוני!</string>
   <string name="external_link_popup_dialog_message">פעולה זו מובילה לקישור חיצוני. כתוצאה מכך עשויות לחול עליך עלויות בגין העברת נתונים או שהקישור לא יעבוד עקב העדר חיבור. להמשיך?</string>
   <string name="do_not_ask_anymore">לא לשאול שוב</string>
   <string name="your_languages">שפות נבחרות:</string>
@@ -175,7 +182,7 @@
   <string name="articleCount">%s ערכים</string>
   <string name="get_started">איך מתחילים</string>
   <string name="download_books">הורדת ספרים</string>
-  <string name="human_kind_knowledge">Human kind\'s knowledge, on your phone.</string>
+  <string name="humankind_knowledge">Humankind\'s knowledge, on your phone.</string>
   <string name="welcome_to_the_family">ברוכים הבאים למשפחה!</string>
   <string name="save_books_offline">תשמרו ספרים לקריאה ללא חיבור לרשת</string>
   <string name="download_books_message">תורידו ספרים ותקראו אותם בכל מקום.</string>
@@ -191,7 +198,7 @@
   <string name="history_from_current_book">צפייה בהיסטוריה מכל הספרים</string>
   <string name="search_history">חיפוש בהיסטוריה</string>
   <string name="selected_items">נבחרו %1$d</string>
-  <string name="bookmarks_from_current_book" fuzzy="true">סימניות מהספר הנוכחי</string>
+  <string name="bookmarks_from_current_book">הצגת סימניות מכל הספרים</string>
   <string name="search_bookmarks">חיפוש סימניות</string>
   <string name="switch_tabs">החלפת כרטיסיות</string>
   <string name="close_all_tabs">סגירת כל הכרטיסיות</string>
@@ -206,6 +213,8 @@
   <string name="ext_storage_permission_rationale_add_note">נדרשת גישה לאחסון בשביל הערות</string>
   <string name="ext_storage_write_permission_denied_add_note">Notes can\'t be used without access to storage</string>
   <string name="note_save_unsuccessful">שמירת ההערה לא הצליחה</string>
+  <string name="note_delete_successful">ההערה נמחקה בהצלחה</string>
+  <string name="note_delete_unsuccessful">ההערה לא נמחקה</string>
   <string name="note_save_successful">ההערה נשמרה</string>
   <string name="note_save_error_storage_not_writable">שגיאה בשמירת ההערה: לא ניתן לכתוב לאחסון</string>
   <string name="note_share_error_file_missing">Note file doesn\'t exist</string>
@@ -221,6 +230,7 @@
   <string name="severe_loss_error">שגיאה חמורה! נא לנסות לכבות ולהדליק מחדש את ה־P2P בווייפיי</string>
   <string name="connection_failed">החיבור נכשל</string>
   <string name="permission_rationale_location">נדרשת הרשאת גישה באנדרואיד כדי לאפשר ליישום לזהות מכשירים עמיתים</string>
+  <string name="permission_rationale_location_on_host_zim_file">נדרש אישור לגשת למיקום על ידי Android כדי לאפשרים ליישומון לאחסן קובצי Zim</string>
   <string name="permission_refused_location">לא ניתן לאתר מגשירים עמיתים ללא הרשאות מיקום</string>
   <string name="permission_refused_storage">לא ניתן לגשת לקובצי zim ללא הרשאות אחסון</string>
   <string name="request_enable_location">נא להפעיל מיקום כדי לאפשר זיהוי עמיתים</string>
@@ -243,13 +253,38 @@
   <string name="status">מצב</string>
   <string name="pref_clear_all_notes_summary">ניקוי כל ההערות בכל הערכים</string>
   <string name="pref_clear_all_notes_title">ניקוי כל ההערות</string>
+  <string name="pref_text_zoom_summary">לשנות את גודל הטקסט בקפיצות של 25%.</string>
   <string name="tag_pic">תמונה</string>
   <string name="tag_vid">סרטון</string>
   <string name="tag_text_only">רק טקסט</string>
   <string name="tag_short_text">טקסט קצר</string>
   <string name="storage_permission_denied">אישור האחסון נדחה</string>
   <string name="grant_read_storage_permission">אפליקציה זו דורשת את אפשרות לקרוא את האחסון שלך כדי לתפקד. אנא הענק את ההרשאה בהגדרות שלך</string>
-  <string name="go_to_settings">לך להגדרות</string>
+  <string name="go_to_settings">לך להגדרות נקודת גישה</string>
   <string name="no_results">אין תוצאות</string>
   <string name="no_bookmarks">אין סימניות</string>
+  <string name="no_history">אין היסטוריה</string>
+  <string name="device_default">ברירת המחדל של המכשיר</string>
+  <string name="delete_history">למחוק את כל ההיסטוריה?</string>
+  <string name="delete_selected_history">למחוק את ההיסטוריה שנבחרה?</string>
+  <string name="delete_bookmarks">למחוק את כל המועדפים?</string>
+  <string name="delete_selected_bookmarks">למחוק את המועדפים שנבחרו?</string>
+  <string name="on">מופעל</string>
+  <string name="off">כבוי</string>
+  <string name="auto">אוטומטי</string>
+  <string name="send_report">שליחת דוח אבחון</string>
+  <string name="crash_checkbox_file_system">פרטי מערכת קבצים</string>
+  <string name="diagnostic_report">דוח אבחון</string>
+  <string name="diagnostic_report_message">נא לשלוח את כל הפרטים הבאים כדי שנוכל לאבחן את התקלה</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">תקריב טקסט</string>
+  <string name="search_open_in_new_tab">פתיחה בלשונית חדשה</string>
+  <string name="reader">מציג</string>
+  <string name="no_open_book">אין ספר פתוח</string>
+  <string name="open_library">ספרייה פתוחה</string>
+  <string name="tab_restored">הלשונית שוחזרה</string>
+  <string name="open_drawer">פתיחת מגירה</string>
+  <string name="close_drawer">סגירת מגירה</string>
+  <string name="how_to_update_content">איך לעדכן תוכן?</string>
+  <string name="update_content_description">כדי לעדכן תוכן (קובץ zim) עליך להוריד את הגרסה המלאה העדכנית ביותר של אותו התוכן בדיוק. ניתן לעשות זאת דרך סעיף ההורדה.</string>
 </resources>

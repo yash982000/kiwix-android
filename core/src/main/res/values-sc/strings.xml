@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Fitoschido
 * L2212
 -->
 <resources>
-  <string name="kiwi">Kiwi</string>
   <string name="menu_help">Agiudu</string>
   <string name="menu_home">Pàgina printzipale</string>
   <string name="menu_settings">Impostatziones</string>
@@ -20,7 +20,6 @@
   <string name="save_media">Sarba su mèdia</string>
   <string name="save_media_error">B\'est istadu un\'errore durante su tentativu de sarvamentu de su mèdia!</string>
   <string name="save_media_saved">Mèdia sarvadu comente %s in Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">Iscansende pro documentos ZIM, pro praghere iseta…</string>
   <string name="search_label">Chirca</string>
   <string name="choose_file">Ischerta unu documentu de cuntenutu ZIM (*.zim)</string>
   <string name="open_in_new_tab">Abèrrere su ligàmene in un\'ischeda noa?</string>
@@ -28,38 +27,38 @@
   <string name="hotspot_failed_title">Aviamentu de s\'hotspot fallidu</string>
   <string name="hotspot_failed_message">Paret chi s\'hotspot tuo siat allutu. Pro praghere disabìlita s\'hotspot wifi tuo pro sighire.</string>
   <string name="go_to_wifi_settings_label">Bae a sas impostatziones de su WIFI</string>
+  <string name="connection_refused">Connessione negada.</string>
   <string name="hotspot_running">Hotspot ativu</string>
   <string name="no_books_selected_toast_message">In antis ischerta libros</string>
   <string name="server_failed_message">Aviamentu de su servidore fallidu. Pro praghere allughe s\'hotspot tuo</string>
   <string name="server_failed_toast_message">Aviamentu de su servidore fallidu.</string>
   <string name="server_started_successfully_toast_message">Servidore aviadu chene problemas.</string>
+  <string name="server_stopped_successfully_toast_message">Servidore firmadu chene problemas.</string>
   <string name="hotspot_turned_on">Hotspot allutu</string>
   <string name="hotspot_details_message">Sos chi sighint sunt sos detàllios de s\'hotspot locale tuo. \nSSID : %1$s \nCrae : %2$s</string>
   <string name="server_textview_default_message">Ischerta sos documentos chi cheres istrangiare in su servidore</string>
   <string name="progress_dialog_starting_server">Aviende su servidore</string>
-  <string name="hotspot_dialog_title">Allughe s\'hotspot WIFI tuo</string>
-  <string name="hotspot_dialog_message">Pro permìtere a custa funtzionalidade de funtzionare depes, in antis, allùghere manualmente s\'hotspot WIFI tuo.</string>
-  <string name="hotspot_dialog_neutral_button">EJA, L\'APO ALLUTU</string>
+  <string name="hotspot_dialog_title">Istrutziones pro istrangiare libros</string>
+  <string name="wifi_dialog_title">Connessione WiFi rilevada</string>
+  <string name="wifi_dialog_body">Pro pòdere pompiare sos libros in àteros dispositivos, assegura·ti chi totu sos dispositivos siant connessos a sa matessi retza WiFi.</string>
+  <string name="hotspot_dialog_message">Pro permìtere a custa funtzionalidade de funtzionare depes, in antis, allùghere manualmente s\'hotspot WIFI tuo o t\'assegurare chi su dispositivu de istrangiamentu e su chi retzet siant in sa matessi retza WiFi</string>
+  <string name="hotspot_dialog_neutral_button">SIGHI</string>
   <string name="hotspot_channel_description">Agiornamentos a pitzu de s\'istadu de s\'hotspot/servidore tuo.</string>
   <string name="hotspot_notification_content_title">Hotspot Kiwix</string>
   <string name="start_server_label">Avia su servidore</string>
   <string name="stop_server_label">Firma su servidore</string>
   <string name="server_started_message">Inserta custu indiritzu ip in su navigadore tuo pro intrare in su servidore %s</string>
   <string name="error_file_not_found">Errore: su documentu ZIM ischertadu no est istadu agatadu.</string>
+  <string name="zim_not_opened">Impossìbile abèrrere su documentu zim</string>
   <string name="error_file_invalid">Errore: su documentu ischertadu no est unu documentu ZIM vàlidu.</string>
   <string name="error_article_url_not_found">Errore: carrigamentu de s\'artìculu (Url: %1$s) non resèssidu.</string>
   <string name="pref_display_title">Ischermu</string>
-  <string name="pref_zoom_sub_title">Ismanniamentu</string>
-  <string name="pref_zoom_dialog">Livellu de ismanniamentu</string>
   <string name="pref_info_title">Informatziones</string>
   <string name="pref_info_version">Versione</string>
-  <string name="pref_zoom_enable">Gestione de s\'ismanniamentu</string>
   <string name="pref_night_mode">Modalidade pro sa note</string>
   <string name="pref_night_mode_summary">Ammustra sos artìculos cun colores furriados</string>
   <string name="pref_back_to_top">Torra a su cumintzu</string>
   <string name="pref_back_to_top_summary">Ammustra unu butone a sa fine de sa pàgina pro torrare a su cumintzu</string>
-  <string name="pref_hide_toolbar">Mantene sa barra de sas ainas visìbile</string>
-  <string name="pref_hide_toolbar_summary">Non permitit a sa barra de sas ainas de iscùrrere a foras de sa vista cando ses pompiende cuntenutos</string>
   <string name="pref_language_title">Limba</string>
   <string name="pref_language_chooser">Issèbera una limba</string>
   <string name="pref_credits">Contribuidores e Litzèntzias</string>
@@ -74,11 +73,11 @@
   <string name="pref_clear_all_history_summary">Iscantzella sa cronologia de sas chircas e de sas ischedas reghentes</string>
   <string name="all_history_cleared">Cronologia iscantzellada de su totu</string>
   <string name="pref_clear_all_bookmarks_title">Isbòida sos sinnalibros</string>
-  <string name="all_bookmarks_cleared">As iscantzelladu totu sos sinnalibros</string>
-  <string name="clear_all_history_dialog_title">Iscantzella totu sa cronologia</string>
+  <string name="clear_all_history_dialog_title">Iscantzellare totu sa cronologia?</string>
   <string name="share">Cumpartzi</string>
   <string name="selected_file_cab_app_chooser_title">Cumpartzi documentos ZIM cun:</string>
   <string name="delete">Iscantzella</string>
+  <string name="cancel">Annulla</string>
   <string name="delete_specific_search_toast">Chirca reghente bogada</string>
   <string name="hint_contents_drawer_message">Podes trisinare a manca pro abbistare sos cuntenutos de custu artìculu</string>
   <string name="got_it">Cumpresu</string>
@@ -104,10 +103,11 @@
   <string name="local_zims">Dispositivu</string>
   <string name="remote_zims">In lìnia</string>
   <string name="library">Biblioteca</string>
-  <string name="delete_zim_body">Iscantzellare %s?</string>
-  <string name="delete_specific_zim_toast">Documentu iscantzelladu</string>
+  <string name="delete_zim_body">Custos documentos zim ant a èssere iscantzellados:\n\n%s</string>
+  <string name="delete_zims_toast">Documentu iscantzelladu chene problemas</string>
   <string name="no_files_here">Perunu documentu inoghe</string>
-  <string name="download_no_space">Sa memòria non bastat pro iscarrigare custu documentu.</string>
+  <string name="download_no_space">Sa memòria non bastat pro l\'iscarrigare.</string>
+  <string name="download">Iscàrriga</string>
   <string name="space_available">Ispàtziu disponìbile:</string>
   <string name="zim_simple">Sèmplitze</string>
   <string name="zim_no_pic">Peruna immàgine</string>
@@ -125,7 +125,7 @@
   <string name="help_11">Sos documentos ZIM iscarrigados dae intro de s\'aplicatzione sunt sarvados in sa memòria esterna in una cartella mutida “Kiwix”.</string>
   <string name="pref_storage">Memòria</string>
   <string name="pref_current_folder">Cartella atuale</string>
-  <string name="delete_zim_failed">Non est istadu possìbile iscantzellare custu documentu. Dias pòdere proare a impreare unu gestore de documentos.</string>
+  <string name="delete_zim_failed">Non est istadu possìbile iscantzellare unos cantos documentos. Dias pòdere proare a impreare unu gestore de documentos.</string>
   <string name="tts_pause">pàusa</string>
   <string name="tts_resume">sighi</string>
   <string name="stop">firma</string>
@@ -137,6 +137,8 @@
   <string name="confirm_stop_download_msg">Seguru ses de bòlere firmare custu iscarrigamentu?</string>
   <string name="download_change_storage">Isseberadore de dispositivu de memòria</string>
   <string name="tts_not_enabled">Sa sintetizatzione vocale no est abilitada pro custu documentu ZIM</string>
+  <string name="texttospeech_initialization_failed">Initzializatzione de sa sintetizatzione de sa boghe fallida. Pro praghere torra a proare.</string>
+  <string name="texttospeech_error">B\'at àpidu un\'errore ispensadu cun sa sintetizatzione de sa boghe. Pro praghere torra a proare.</string>
   <string name="next">Imbeniente</string>
   <string name="previous">Antepostu</string>
   <string name="wifi_only_title">Permìtere s\'iscarrigamentu de cuntenutu pro mèdiu de retza mòbile?</string>
@@ -151,7 +153,7 @@
   <string name="time_yesterday">Eris</string>
   <string name="pref_external_link_popup_title">Avisa cando ses aberende unu ligàmene esternu</string>
   <string name="pref_external_link_popup_summary">Ammustra ventaneddas pro t\'avisare de costos agiuntivos o ligàmenes chi non funtzionant chene una connessione a ìnternet.</string>
-  <string name="external_link_popup_dialog_title">Aberende unu ligàmene esternu</string>
+  <string name="external_link_popup_dialog_title">Aberende unu ligàmene esternu!</string>
   <string name="external_link_popup_dialog_message">Ses aberende unu ligàmene esternu. Custu diat pòdere causare costos in prus pro s\'impreu de trasferimentu de datos o diant pòdere non funtzionare cando non ses connessu a ìnternet. Cheres sighire?</string>
   <string name="do_not_ask_anymore">Non mi lu preguntes prus</string>
   <string name="your_languages">Limbas ischertadas:</string>
@@ -172,7 +174,7 @@
   <string name="articleCount">%s artìculos</string>
   <string name="get_started">Incumintza</string>
   <string name="download_books">Iscàrriga libros</string>
-  <string name="human_kind_knowledge">Sa connoschèntzia de s\'umanidade in su telèfonu tuo.</string>
+  <string name="humankind_knowledge">Sa connoschèntzia de s\'umanidade in su telèfonu tuo.</string>
   <string name="welcome_to_the_family">Bene bènnidu in sa famìlia</string>
   <string name="save_books_offline">Sarva libros non in lìnia</string>
   <string name="download_books_message">Iscàrriga libros e leghe·los in cale si siat logu.</string>
@@ -203,6 +205,8 @@
   <string name="ext_storage_permission_rationale_add_note">Pro sas notas est netzessàriu s\'atzessu a sa memòria</string>
   <string name="ext_storage_write_permission_denied_add_note">Sas notas non podent èssere impreadas chene atzessu a sa memòria</string>
   <string name="note_save_unsuccessful">Sarvatàgiu de sa nota fallidu</string>
+  <string name="note_delete_successful">Nota iscantzellada chene problemas</string>
+  <string name="note_delete_unsuccessful">Sa nota no est istada iscantzellada</string>
   <string name="note_save_successful">Nota sarvada</string>
   <string name="note_save_error_storage_not_writable">Errore in su sarvamentu de sa nota: non si podet iscrìere in sa memòria</string>
   <string name="note_share_error_file_missing">Su documentu de sa nota no esistit</string>
@@ -218,6 +222,7 @@
   <string name="severe_loss_error">Faddina manna! Proa a Disabilitare/Torrare a abilitare su P2P WiFi</string>
   <string name="connection_failed">Connessione fallida</string>
   <string name="permission_rationale_location">Android tenet bisòngiu de su permissu de localizatzione pro rilevare dispositivos pares (peers)</string>
+  <string name="permission_rationale_location_on_host_zim_file">Android tenet bisòngiu de su permissu de localizatzione pro permìtere a s\'aplicatzione de istrangiare documentos Zim</string>
   <string name="permission_refused_location">Impossìbile localizare dispositivos pares (peers) chene sos permissos de localizatzione</string>
   <string name="permission_refused_storage">Impossìbile tènnere atzessu a sos documentos zim chene su permissu de archiviatzione</string>
   <string name="request_enable_location">Abìlita sa localizatzione pro permìtere su rilevamentu de pares (peers)</string>
@@ -240,15 +245,38 @@
   <string name="status">Istadu</string>
   <string name="pref_clear_all_notes_summary">Iscantzella totu sas notas in totu sos artìculos</string>
   <string name="pref_clear_all_notes_title">Iscantzella totu sas notas</string>
+  <string name="pref_text_zoom_summary">Càmbia sa mannària de su testu cun ismanniamentos de su 25%.</string>
   <string name="tag_pic">Immàgine</string>
   <string name="tag_vid">Vìdeu</string>
   <string name="tag_text_only">Testu ebbia</string>
   <string name="tag_short_text">Testu curtzu</string>
   <string name="storage_permission_denied">Permissu de archiviatzione negadu</string>
   <string name="grant_read_storage_permission">Cust\'aplicatzione tenet bisòngiu de sa possibilidade de pòdere lèghere sa memòria pro funtzionare. Pro praghere dae·li su permissu in sas impostatziones.</string>
-  <string name="go_to_settings">Bae a sas impostatziones</string>
+  <string name="go_to_settings">Bae a sas impostatziones de s\'Hotspot</string>
   <string name="no_results">Perunu resurtadu</string>
   <string name="no_bookmarks">Perunu sinnalibru!</string>
   <string name="no_history">Peruna cronologia</string>
   <string name="device_default">Valore predefinidu de su dispositivu</string>
+  <string name="delete_history">Iscantzellare totu sa cronologia?</string>
+  <string name="delete_selected_history">Iscantzellare sa cronologia ischertada?</string>
+  <string name="delete_bookmarks">Iscantzellare totu sos sinnalibros?</string>
+  <string name="delete_selected_bookmarks">Iscantzellare sos sinnalibros ischertados?</string>
+  <string name="on">Alluta</string>
+  <string name="off">Istudada</string>
+  <string name="auto">Automàtica</string>
+  <string name="send_report">Imbia su raportu de diagnòstica</string>
+  <string name="crash_checkbox_file_system">Detàllios de su sistema de documentos</string>
+  <string name="diagnostic_report">Raportu de diagnòstica</string>
+  <string name="diagnostic_report_message">Pro praghere imbia totu sos detàllios chi sighent, in manera chi amus a pòdere diagnosticare su problema</string>
+  <string name="percentage">%d%%</string>
+  <string name="pref_text_zoom_title">Ismanniamentu de su testu</string>
+  <string name="search_open_in_new_tab">Aberi in un\'ischeda noa</string>
+  <string name="reader">Leghidore</string>
+  <string name="no_open_book">Perunu libru abertu</string>
+  <string name="open_library">Aberi sa biblioteca</string>
+  <string name="tab_restored">Ischeda ripristinada</string>
+  <string name="open_drawer">Aberi su pannellu</string>
+  <string name="close_drawer">Serra su pannellu</string>
+  <string name="how_to_update_content">Comente agiornare su cuntenutu?</string>
+  <string name="update_content_description">Pro agiornare su cuntenutu (unu documentu zim) tenes bisòngiu de iscarrigare s\'ùtrima versione intrea de su matessi cuntenutu. Lu podes fàghere pro mèdiu de sa setzione de iscarrigamentu.</string>
 </resources>

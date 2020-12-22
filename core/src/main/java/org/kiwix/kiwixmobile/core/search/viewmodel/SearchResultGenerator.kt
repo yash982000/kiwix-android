@@ -18,37 +18,49 @@
 
 package org.kiwix.kiwixmobile.core.search.viewmodel
 
-import org.kiwix.kiwixmobile.core.reader.ZimReaderContainer
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
+import org.kiwix.kiwixmobile.core.reader.ZimFileReader
 import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem
 import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem.ZimSearchResultListItem
-import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil
 import javax.inject.Inject
 
 interface SearchResultGenerator {
-  fun generateSearchResults(searchTerm: String): List<SearchListItem>
+  suspend fun generateSearchResults(
+    searchTerm: String,
+    zimFileReader: ZimFileReader?
+  ): List<SearchListItem>
 }
 
-class ZimSearchResultGenerator @Inject constructor(
-  private val sharedPreferenceUtil: SharedPreferenceUtil,
-  private val zimReaderContainer: ZimReaderContainer
-) : SearchResultGenerator {
-  override fun generateSearchResults(searchTerm: String) =
-    if (searchTerm.isNotEmpty()) readResultsFromZim(searchTerm)
-    else emptyList()
+class ZimSearchResultGenerator @Inject constructor() : SearchResultGenerator {
 
-  private fun readResultsFromZim(it: String) =
-    if (sharedPreferenceUtil.prefFullTextSearch)
-      zimReaderContainer.search(it, 200).run { fullTextResults() }
-    else
-      zimReaderContainer.searchSuggestions(it, 200).run { suggestionResults() }
+  override suspend fun generateSearchResults(searchTerm: String, zimFileReader: ZimFileReader?) =
+    withContext(Dispatchers.IO) {
+      if (searchTerm.isNotEmpty()) readResultsFromZim(searchTerm, zimFileReader)
+      else emptyList()
+    }
 
-  private fun fullTextResults() = generateSequence {
-    zimReaderContainer.getNextResult()?.title?.let(::ZimSearchResultListItem)
-  }.filter { it.value.isNotBlank() }
+  private suspend fun readResultsFromZim(
+    searchTerm: String,
+    reader: ZimFileReader?
+  ) =
+    reader.also { yield() }
+      ?.searchSuggestions(searchTerm, 200)
+      .also { yield() }
+      .run { suggestionResults(reader) }
+
+  private suspend fun suggestionResults(reader: ZimFileReader?) = createList {
+    yield()
+    reader?.getNextSuggestion()
+      ?.let { ZimSearchResultListItem(it.title) }
+  }
+    .distinct()
     .toList()
 
-  private fun suggestionResults() = generateSequence {
-    zimReaderContainer.getNextSuggestion()?.let { ZimSearchResultListItem(it.title) }
-  }.distinct()
-    .toList()
+  private suspend fun <T> createList(readSearchResult: suspend () -> T?): List<T> {
+    return mutableListOf<T>().apply {
+      while (true) readSearchResult()?.let(::add) ?: break
+    }
+  }
 }

@@ -17,26 +17,19 @@
  */
 package org.kiwix.kiwixmobile.core.reader
 
-import android.net.Uri
-import org.kiwix.kiwixlib.JNIKiwixSearcher
+import android.webkit.WebResourceResponse
 import org.kiwix.kiwixmobile.core.reader.ZimFileReader.Factory
 import java.io.File
+import java.net.HttpURLConnection
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ZimReaderContainer @Inject constructor(
-  private val zimFileReaderFactory: Factory,
-  private val jniKiwixSearcher: JNIKiwixSearcher?
-) {
-  private val listOfAddedReaderIds = mutableListOf<String>()
+class ZimReaderContainer @Inject constructor(private val zimFileReaderFactory: Factory) {
   var zimFileReader: ZimFileReader? = null
     set(value) {
+      field?.dispose()
       field = value
-      if (value != null && !listOfAddedReaderIds.contains(value.id)) {
-        listOfAddedReaderIds.add(value.id)
-        jniKiwixSearcher?.addKiwixReader(value.jniKiwixReader)
-      }
     }
 
   fun setZimFile(file: File?) {
@@ -48,27 +41,36 @@ class ZimReaderContainer @Inject constructor(
       else null
   }
 
-  fun readMimeType(uri: Uri) = zimFileReader?.readMimeType(uri)
-
-  fun load(uri: Uri) = zimFileReader?.load(uri)
-
-  fun searchSuggestions(prefix: String, count: Int) =
-    zimFileReader?.searchSuggestions(prefix, count) ?: false
-
-  fun getNextSuggestion() = zimFileReader?.getNextSuggestion()
-
   fun getPageUrlFromTitle(title: String) = zimFileReader?.getPageUrlFrom(title)
 
   fun getRandomArticleUrl() = zimFileReader?.getRandomArticleUrl()
-  fun search(query: String, count: Int) {
-    jniKiwixSearcher?.search(query, count)
-  }
-
-  fun getNextResult() = jniKiwixSearcher?.nextResult?.let { SearchResult(it.title) }
   fun isRedirect(url: String): Boolean = zimFileReader?.isRedirect(url) == true
   fun getRedirect(url: String): String = zimFileReader?.getRedirect(url) ?: ""
+  fun load(url: String, requestHeaders: Map<String, String>): WebResourceResponse {
+    val data = zimFileReader?.load(url)
+    return WebResourceResponse(zimFileReader?.readMimeType(url), Charsets.UTF_8.name(), data)
+      .apply {
+        val headers = mutableMapOf("Accept-Ranges" to "bytes")
+        if ("Range" in requestHeaders.keys) {
+          setStatusCodeAndReasonPhrase(HttpURLConnection.HTTP_PARTIAL, "Partial Content")
+          val fullSize = data?.available()?.toLong() ?: 0L
+          val lastByte = fullSize - 1
+          val byteRanges = requestHeaders.getValue("Range").substringAfter("=").split("-")
+          headers["Content-Range"] = "bytes ${byteRanges[0]}-$lastByte/$fullSize"
+          if (byteRanges.size == 1) {
+            headers["Connection"] = "close"
+          }
+        } else {
+          setStatusCodeAndReasonPhrase(HttpURLConnection.HTTP_OK, "OK")
+        }
+        responseHeaders = headers
+      }
+  }
+
+  fun copyReader(): ZimFileReader? = zimFile?.let(zimFileReaderFactory::create)
 
   val zimFile get() = zimFileReader?.zimFile
+
   val zimCanonicalPath get() = zimFileReader?.zimFile?.canonicalPath
   val zimFileTitle get() = zimFileReader?.title
   val mainPage get() = zimFileReader?.mainPage

@@ -19,6 +19,7 @@
 package org.kiwix.kiwixmobile.core.search.viewmodel
 
 import android.content.Intent
+import android.os.Bundle
 import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem
 
 sealed class Action {
@@ -28,11 +29,13 @@ sealed class Action {
   object StartSpeechInputFailed : Action()
 
   data class OnItemClick(val searchListItem: SearchListItem) : Action()
+  data class OnOpenInNewTabClick(val searchListItem: SearchListItem) : Action()
+
   data class OnItemLongClick(val searchListItem: SearchListItem) : Action()
   data class Filter(val term: String) : Action()
   data class ScreenWasStartedFrom(val searchOrigin: SearchOrigin) : Action()
   data class ConfirmedDelete(val searchListItem: SearchListItem) : Action()
-  data class CreatedWithIntent(val intent: Intent?) : Action()
+  data class CreatedWithArguments(val arguments: Bundle?) : Action()
   data class ActivityResultReceived(val requestCode: Int, val resultCode: Int, val data: Intent?) :
     Action()
 }

@@ -1,6 +1,6 @@
 /*
  * Kiwix Android
- * Copyright (c) 2019 Kiwix <android.kiwix.org>
+ * Copyright (c) 2020 Kiwix <android.kiwix.org>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,161 +20,109 @@ package org.kiwix.kiwixmobile.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.core.net.toFile
-import androidx.core.net.toUri
-import org.json.JSONArray
+import android.view.MenuItem
+import androidx.appcompat.view.ActionMode
+import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_kiwix_main.bottom_nav_view
+import kotlinx.android.synthetic.main.activity_kiwix_main.drawer_nav_view
+import kotlinx.android.synthetic.main.activity_kiwix_main.navigation_container
+import kotlinx.android.synthetic.main.activity_kiwix_main.reader_drawer_nav_view
 import org.kiwix.kiwixmobile.R
+import org.kiwix.kiwixmobile.core.base.FragmentActivityExtensions
 import org.kiwix.kiwixmobile.core.di.components.CoreComponent
-import org.kiwix.kiwixmobile.core.extensions.ActivityExtensions.start
-import org.kiwix.kiwixmobile.core.extensions.snack
-import org.kiwix.kiwixmobile.core.extensions.toast
 import org.kiwix.kiwixmobile.core.main.CoreMainActivity
-import org.kiwix.kiwixmobile.core.main.WebViewCallback
-import org.kiwix.kiwixmobile.core.reader.ZimFileReader
-import org.kiwix.kiwixmobile.core.reader.ZimReaderContainer
-import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil.PREF_KIWIX_MOBILE
-import org.kiwix.kiwixmobile.core.utils.EXTRA_ZIM_FILE
-import org.kiwix.kiwixmobile.core.utils.TAG_CURRENT_ARTICLES
-import org.kiwix.kiwixmobile.core.utils.TAG_CURRENT_FILE
-import org.kiwix.kiwixmobile.core.utils.TAG_CURRENT_POSITIONS
-import org.kiwix.kiwixmobile.core.utils.TAG_CURRENT_TAB
-import org.kiwix.kiwixmobile.core.utils.TAG_KIWIX
-import org.kiwix.kiwixmobile.core.utils.UpdateUtils.reformatProviderUrl
-import org.kiwix.kiwixmobile.core.utils.files.FileUtils
 import org.kiwix.kiwixmobile.kiwixActivityComponent
-import org.kiwix.kiwixmobile.webserver.ZimHostActivity
-import org.kiwix.kiwixmobile.zim_manager.ZimManageActivity
-import java.io.File
+import org.kiwix.kiwixmobile.nav.destination.library.LocalLibraryFragmentDirections
+
+const val NAVIGATE_TO_ZIM_HOST_FRAGMENT = "navigate_to_zim_host_fragment"
 
 class KiwixMainActivity : CoreMainActivity() {
+  private var actionMode: ActionMode? = null
+
+  override val cachedComponent by lazy { kiwixActivityComponent }
+  override val searchFragmentResId: Int = R.id.searchFragment
+  override val navController by lazy { findNavController(R.id.nav_host_fragment) }
+  override val drawerContainerLayout: DrawerLayout by lazy { navigation_container }
+  override val drawerNavView: NavigationView by lazy { drawer_nav_view }
+  override val readerTableOfContentsDrawer: NavigationView by lazy { reader_drawer_nav_view }
+  override val bookmarksFragmentResId: Int = R.id.bookmarksFragment
+  override val settingsFragmentResId: Int = R.id.kiwixSettingsFragment
+  override val historyFragmentResId: Int = R.id.historyFragment
+  override val readerFragmentResId: Int = R.id.readerFragment
+  override val helpFragmentResId: Int = R.id.helpFragment
+  override val topLevelDestinations =
+    setOf(R.id.downloadsFragment, R.id.libraryFragment, R.id.readerFragment)
+
+  override fun injection(coreComponent: CoreComponent) {
+    cachedComponent.inject(this)
+  }
+
+  private val finishActionModeOnDestinationChange =
+    NavController.OnDestinationChangedListener { _, _, _ ->
+      actionMode?.finish()
+    }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    manageExternalLaunchAndRestoringViewState()
+    setContentView(R.layout.activity_kiwix_main)
+
+    navController.addOnDestinationChangedListener(finishActionModeOnDestinationChange)
+    drawer_nav_view.setupWithNavController(navController)
+    drawer_nav_view.setNavigationItemSelectedListener { item ->
+      closeNavigationDrawer()
+      onNavigationItemSelected(item)
+    }
+    bottom_nav_view.setupWithNavController(navController)
   }
 
-  override fun onResume() {
-    super.onResume()
-    if (zimReaderContainer.zimFile == null && HOME_URL != currentWebView.url) {
-      showHomePage()
+  override fun configureActivityBasedOn(destination: NavDestination) {
+    super.configureActivityBasedOn(destination)
+    bottom_nav_view.isVisible = destination.id in topLevelDestinations
+  }
+
+  override fun onStart() {
+    super.onStart()
+    navController.addOnDestinationChangedListener { _, destination, _ ->
+      bottom_nav_view.isVisible = destination.id in topLevelDestinations
+      if (destination.id !in topLevelDestinations) {
+        handleDrawerOnNavigation()
+      }
+    }
+    if (sharedPreferenceUtil.showIntro()) {
+      navigate(LocalLibraryFragmentDirections.actionLibraryFragmentToIntrofragment())
     }
   }
 
-  override fun createWebClient(
-    webViewCallback: WebViewCallback,
-    zimReaderContainer: ZimReaderContainer
-  ) = KiwixWebViewClient(webViewCallback, zimReaderContainer)
+  override fun onSupportActionModeStarted(mode: ActionMode) {
+    super.onSupportActionModeStarted(mode)
+    actionMode = mode
+  }
 
-  private fun manageExternalLaunchAndRestoringViewState() {
-
-    val data = uriFromIntent()
-    if (data != null) {
-      val filePath = FileUtils.getLocalFilePathByUri(applicationContext, data)
-
-      if (filePath == null || !File(filePath).exists()) {
-        currentWebView.snack(R.string.error_file_not_found)
-        return
-      }
-
-      Log.d(
-        TAG_KIWIX, "Kiwix started from a file manager. Intent filePath: " +
-          filePath +
-          " -> open this zim file and load menu_main page"
-      )
-      openZimFile(File(filePath))
-    } else {
-      val settings = getSharedPreferences(PREF_KIWIX_MOBILE, 0)
-      val zimFile = settings.getString(TAG_CURRENT_FILE, null)
-      if (zimFile != null && File(zimFile).exists()) {
-        Log.d(
-          TAG_KIWIX,
-          "Kiwix normal start, zimFile loaded last time -> Open last used zimFile $zimFile"
-        )
-        restoreTabStates()
-        // Alternative would be to restore webView state. But more effort to implement, and actually
-        // fits better normal android behavior if after closing app ("back" button) state is not maintained.
-      } else {
-        Log.d(TAG_KIWIX, "Kiwix normal start, no zimFile loaded last time  -> display home page")
-        showHomePage()
-      }
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    supportFragmentManager.fragments.filterIsInstance<FragmentActivityExtensions>().forEach {
+      it.onNewIntent(intent, this)
     }
   }
 
-  override fun injection(coreComponent: CoreComponent) {
-    kiwixActivityComponent.inject(this)
+  override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    when (item.itemId) {
+      R.id.menu_host_books -> openZimHostFragment()
+      else -> return super.onNavigationItemSelected(item)
+    }
+    return true
   }
 
-  override fun hasValidFileAndUrl(url: String?, zimFileReader: ZimFileReader?) =
-    super.hasValidFileAndUrl(url, zimFileReader) && url != HOME_URL
+  private fun openZimHostFragment() {
+    disableDrawer()
+    navigate(R.id.zimHostFragment)
+  }
 
   override fun getIconResId() = R.mipmap.ic_launcher
-
-  override fun urlIsInvalid() =
-    super.urlIsInvalid() || currentWebView.url == HOME_URL
-
-  override fun showHomePage() {
-    currentWebView.removeAllViews()
-    currentWebView.loadUrl(HOME_URL)
-  }
-
-  override fun createNewTab() {
-    newTab(HOME_URL)
-  }
-
-  override fun isInvalidTitle(zimFileTitle: String?) =
-    super.isInvalidTitle(zimFileTitle) || HOME_URL == currentWebView.url
-
-  private fun uriFromIntent() =
-    intent.data ?: intent.getStringExtra(EXTRA_ZIM_FILE)?.let {
-      File(FileUtils.getFileName(it)).toUri()
-    }
-
-  private fun restoreTabStates() {
-    val settings = getSharedPreferences(PREF_KIWIX_MOBILE, 0)
-    val zimFile = settings.getString(TAG_CURRENT_FILE, null)
-    val zimArticles = settings.getString(TAG_CURRENT_ARTICLES, null)
-    val zimPositions = settings.getString(TAG_CURRENT_POSITIONS, null)
-
-    val currentTab = settings.getInt(TAG_CURRENT_TAB, 0)
-
-    if (zimFile != null) {
-      openZimFile(File(zimFile))
-    } else {
-      currentWebView.snack(R.string.zim_not_opened)
-    }
-    try {
-      val urls = JSONArray(zimArticles)
-      val positions = JSONArray(zimPositions)
-      var i = 0
-      currentWebView.loadUrl(reformatProviderUrl(urls.getString(i)))
-      currentWebView.scrollY = positions.getInt(i)
-      i++
-      while (i < urls.length()) {
-        newTab(reformatProviderUrl(urls.getString(i)))
-        currentWebView.scrollY = positions.getInt(i)
-        i++
-      }
-      selectTab(currentTab)
-    } catch (e: Exception) {
-      Log.w(TAG_KIWIX, "Kiwix shared preferences corrupted", e)
-      // TODO: Show to user
-    }
-  }
-
-  override fun manageZimFiles(tab: Int) {
-    start<ZimManageActivity> { putExtra(ZimManageActivity.TAB_EXTRA, tab) }
-  }
-
-  override fun onNewIntent(intent: Intent?) {
-    super.onNewIntent(intent)
-    intent?.data?.let {
-      if ("file" == it.scheme) openZimFile(it.toFile())
-      else toast(R.string.cannot_open_file)
-    }
-  }
-
-  override fun onHostBooksMenuClicked() {
-    start<ZimHostActivity>()
-  }
 }

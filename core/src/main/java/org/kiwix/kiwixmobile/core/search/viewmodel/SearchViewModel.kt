@@ -18,14 +18,20 @@
 
 package org.kiwix.kiwixmobile.core.search.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.Flowable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Function4
-import io.reactivex.processors.BehaviorProcessor
-import io.reactivex.processors.PublishProcessor
-import io.reactivex.schedulers.Schedulers
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.channels.consumeEach
+import kotlinx.coroutines.channels.sendBlocking
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import org.kiwix.kiwixmobile.core.R
 import org.kiwix.kiwixmobile.core.base.SideEffect
 import org.kiwix.kiwixmobile.core.dao.NewRecentSearchDao
@@ -34,123 +40,105 @@ import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ActivityResultReceived
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ClickedSearchInText
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ConfirmedDelete
-import org.kiwix.kiwixmobile.core.search.viewmodel.Action.CreatedWithIntent
+import org.kiwix.kiwixmobile.core.search.viewmodel.Action.CreatedWithArguments
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ExitedSearch
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.Filter
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.OnItemClick
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.OnItemLongClick
+import org.kiwix.kiwixmobile.core.search.viewmodel.Action.OnOpenInNewTabClick
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ReceivedPromptForSpeechInput
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.ScreenWasStartedFrom
 import org.kiwix.kiwixmobile.core.search.viewmodel.Action.StartSpeechInputFailed
 import org.kiwix.kiwixmobile.core.search.viewmodel.SearchOrigin.FromWebView
-import org.kiwix.kiwixmobile.core.search.viewmodel.State.NoResults
-import org.kiwix.kiwixmobile.core.search.viewmodel.State.Results
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.DeleteRecentSearch
-import org.kiwix.kiwixmobile.core.search.viewmodel.effects.Finish
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.OpenSearchItem
+import org.kiwix.kiwixmobile.core.search.viewmodel.effects.PopFragmentBackstack
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.ProcessActivityResult
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.SaveSearchToRecents
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.SearchInPreviousScreen
-import org.kiwix.kiwixmobile.core.search.viewmodel.effects.SearchIntentProcessing
+import org.kiwix.kiwixmobile.core.search.viewmodel.effects.SearchArgumentProcessing
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.ShowDeleteSearchDialog
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.ShowToast
 import org.kiwix.kiwixmobile.core.search.viewmodel.effects.StartSpeechInput
 import javax.inject.Inject
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class SearchViewModel @Inject constructor(
   private val recentSearchDao: NewRecentSearchDao,
   private val zimReaderContainer: ZimReaderContainer,
   private val searchResultGenerator: SearchResultGenerator
 ) : ViewModel() {
 
-  val state = MutableLiveData<State>().apply { value = NoResults("", FromWebView) }
-  val effects = PublishProcessor.create<SideEffect<*>>()
-  val actions = PublishProcessor.create<Action>()
-  private val filter = BehaviorProcessor.createDefault("")
-  private val searchOrigin = BehaviorProcessor.createDefault(FromWebView)
-
-  private val compositeDisposable = CompositeDisposable()
+  private val initialState: SearchState =
+    SearchState("", SearchResultsWithTerm("", emptyList()), emptyList(), FromWebView)
+  val state: MutableStateFlow<SearchState> = MutableStateFlow(initialState)
+  private val _effects = Channel<SideEffect<*>>()
+  val effects = _effects.receiveAsFlow()
+  val actions = Channel<Action>(Channel.UNLIMITED)
+  private val filter = ConflatedBroadcastChannel("")
+  private val searchOrigin = ConflatedBroadcastChannel(FromWebView)
 
   init {
-    compositeDisposable.addAll(
-      viewStateReducer(),
-      actionMapper()
-    )
+    viewModelScope.launch { reducer() }
+    viewModelScope.launch { actionMapper() }
   }
 
-  override fun onCleared() {
-    compositeDisposable.clear()
-    super.onCleared()
+  private suspend fun reducer() {
+    combine(
+      filter.asFlow(),
+      searchResults(),
+      recentSearchDao.recentSearches(zimReaderContainer.id),
+      searchOrigin.asFlow()
+    ) { searchTerm, searchResultsWithTerm, recentResults, searchOrigin ->
+      SearchState(searchTerm, searchResultsWithTerm, recentResults, searchOrigin)
+    }
+      .collect { state.value = it }
   }
 
-  private fun actionMapper() = actions.map {
+  private fun searchResults() = filter.asFlow()
+    .mapLatest {
+      val zimFileReader = zimReaderContainer.copyReader()
+      try {
+        SearchResultsWithTerm(it, searchResultGenerator.generateSearchResults(it, zimFileReader))
+      } finally {
+        zimFileReader?.dispose()
+      }
+    }
+
+  private suspend fun actionMapper() = actions.consumeEach {
     when (it) {
-      ExitedSearch -> effects.offer(Finish)
-      is OnItemClick -> saveSearchAndOpenItem(it)
+      ExitedSearch -> _effects.offer(PopFragmentBackstack)
+      is OnItemClick -> saveSearchAndOpenItem(it.searchListItem, false)
+      is OnOpenInNewTabClick -> saveSearchAndOpenItem(it.searchListItem, true)
       is OnItemLongClick -> showDeleteDialog(it)
-      is Filter -> filter.offer(it.term)
+      is Filter -> filter.sendBlocking(it.term)
       ClickedSearchInText -> searchPreviousScreenWhenStateIsValid()
       is ConfirmedDelete -> deleteItemAndShowToast(it)
-      is CreatedWithIntent -> effects.offer(SearchIntentProcessing(it.intent, actions))
-      ReceivedPromptForSpeechInput -> effects.offer(StartSpeechInput(actions))
-      StartSpeechInputFailed -> effects.offer(ShowToast(R.string.speech_not_supported))
+      is CreatedWithArguments -> _effects.offer(SearchArgumentProcessing(it.arguments, actions))
+      ReceivedPromptForSpeechInput -> _effects.offer(StartSpeechInput(actions))
+      StartSpeechInputFailed -> _effects.offer(ShowToast(R.string.speech_not_supported))
       is ActivityResultReceived ->
-        effects.offer(ProcessActivityResult(it.requestCode, it.resultCode, it.data, actions))
-      is ScreenWasStartedFrom -> searchOrigin.offer(it.searchOrigin)
+        _effects.offer(ProcessActivityResult(it.requestCode, it.resultCode, it.data, actions))
+      is ScreenWasStartedFrom -> searchOrigin.sendBlocking(it.searchOrigin)
     }
-  }.subscribe(
-    {},
-    Throwable::printStackTrace
-  )
+  }
 
   private fun deleteItemAndShowToast(it: ConfirmedDelete) {
-    effects.offer(DeleteRecentSearch(it.searchListItem, recentSearchDao))
-    effects.offer(ShowToast(R.string.delete_specific_search_toast))
+    _effects.offer(DeleteRecentSearch(it.searchListItem, recentSearchDao))
+    _effects.offer(ShowToast(R.string.delete_specific_search_toast))
   }
 
   private fun searchPreviousScreenWhenStateIsValid(): Any =
-    effects.offer(SearchInPreviousScreen(state.value!!.searchString))
+    _effects.offer(SearchInPreviousScreen(state.value.searchTerm))
 
   private fun showDeleteDialog(longClick: OnItemLongClick) {
-    effects.offer(ShowDeleteSearchDialog(longClick.searchListItem, actions))
+    _effects.offer(ShowDeleteSearchDialog(longClick.searchListItem, actions))
   }
 
-  private fun saveSearchAndOpenItem(it: OnItemClick) {
-    effects.offer(
-      SaveSearchToRecents(recentSearchDao, it.searchListItem, zimReaderContainer.id)
-    )
-    effects.offer(
-      OpenSearchItem(it.searchListItem)
-    )
+  private fun saveSearchAndOpenItem(searchListItem: SearchListItem, openInNewTab: Boolean) {
+    _effects.offer(SaveSearchToRecents(recentSearchDao, searchListItem, zimReaderContainer.id))
+    _effects.offer(OpenSearchItem(searchListItem, openInNewTab))
   }
-
-  private fun viewStateReducer() =
-    Flowable.combineLatest(
-      recentSearchDao.recentSearches(zimReaderContainer.id),
-      searchResultsFromZimReader(),
-      filter,
-      searchOrigin,
-      Function4(this::reduce)
-    ).subscribe(state::postValue, Throwable::printStackTrace)
-
-  private fun reduce(
-    recentSearchResults: List<SearchListItem>,
-    zimSearchResults: List<SearchListItem>,
-    searchString: String,
-    searchOrigin: SearchOrigin
-  ) = when {
-    searchString.isNotEmpty() && zimSearchResults.isNotEmpty() ->
-      Results(searchString, zimSearchResults, searchOrigin)
-    searchString.isEmpty() && recentSearchResults.isNotEmpty() ->
-      Results(searchString, recentSearchResults, searchOrigin)
-    else -> NoResults(searchString, searchOrigin)
-  }
-
-  private fun searchResultsFromZimReader() = filter
-    .distinctUntilChanged()
-    .switchMap(::searchResults)
-
-  private fun searchResults(it: String) = Flowable.fromCallable {
-    searchResultGenerator.generateSearchResults(it)
-  }.subscribeOn(Schedulers.io())
 }
+
+data class SearchResultsWithTerm(val searchTerm: String, val results: List<SearchListItem>)

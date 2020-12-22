@@ -39,7 +39,6 @@ import javax.inject.Singleton
 
 @Module
 object DownloaderModule {
-  @JvmStatic
   @Provides
   @Singleton
   fun providesDownloader(
@@ -48,19 +47,16 @@ object DownloaderModule {
     kiwixService: KiwixService
   ): Downloader = DownloaderImpl(downloadRequester, downloadDao, kiwixService)
 
-  @JvmStatic
   @Provides
   @Singleton
   fun providesDownloadRequester(fetch: Fetch, sharedPreferenceUtil: SharedPreferenceUtil):
     DownloadRequester = FetchDownloadRequester(fetch, sharedPreferenceUtil)
 
-  @JvmStatic
   @Provides
   @Singleton
   fun provideFetch(fetchConfiguration: FetchConfiguration): Fetch =
     Fetch.getInstance(fetchConfiguration)
 
-  @JvmStatic
   @Provides
   @Singleton
   fun provideFetchConfiguration(
@@ -73,15 +69,19 @@ object DownloaderModule {
       enableLogging(BuildConfig.DEBUG)
       enableRetryOnNetworkGain(true)
       setHttpDownloader(okHttpDownloader)
+      preAllocateFileOnCreation(false)
       setNotificationManager(fetchNotificationManager)
     }.build().also(Impl::setDefaultInstanceConfiguration)
 
-  @JvmStatic
   @Provides
   @Singleton
-  fun provideOkHttpDownloader() = OkHttpDownloader(OkHttpClient.Builder().build())
+  fun provideOkHttpDownloader() = OkHttpDownloader(
+    OkHttpClient.Builder()
+      .followRedirects(true)
+      .followSslRedirects(true)
+      .build()
+  )
 
-  @JvmStatic
   @Provides
   @Singleton
   fun provideFetchDownloadNotificationManager(context: Context):

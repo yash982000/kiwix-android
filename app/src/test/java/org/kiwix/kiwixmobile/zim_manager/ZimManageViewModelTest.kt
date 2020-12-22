@@ -19,6 +19,7 @@
 package org.kiwix.kiwixmobile.zim_manager
 
 import android.app.Application
+import android.net.ConnectivityManager
 import com.jraska.livedata.test
 import io.mockk.clearAllMocks
 import io.mockk.every
@@ -43,6 +44,7 @@ import org.kiwix.kiwixmobile.core.data.remote.KiwixService
 import org.kiwix.kiwixmobile.core.downloader.model.DownloadModel
 import org.kiwix.kiwixmobile.core.entity.LibraryNetworkEntity.Book
 import org.kiwix.kiwixmobile.core.utils.BookUtils
+import org.kiwix.kiwixmobile.core.utils.SharedPreferenceUtil
 import org.kiwix.kiwixmobile.core.zim_manager.Language
 import org.kiwix.kiwixmobile.core.zim_manager.fileselect_view.SelectionMode.MULTI
 import org.kiwix.kiwixmobile.core.zim_manager.fileselect_view.SelectionMode.NORMAL
@@ -56,14 +58,12 @@ import org.kiwix.kiwixmobile.zim_manager.NetworkState.NOT_CONNECTED
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.MultiModeFinished
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RequestDeleteMultiSelection
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RequestMultiSelection
-import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RequestOpen
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RequestSelect
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RequestShareMultiSelection
 import org.kiwix.kiwixmobile.zim_manager.ZimManageViewModel.FileSelectActions.RestartActionMode
 import org.kiwix.kiwixmobile.zim_manager.fileselect_view.FileSelectListState
 import org.kiwix.kiwixmobile.zim_manager.fileselect_view.effects.DeleteFiles
 import org.kiwix.kiwixmobile.zim_manager.fileselect_view.effects.None
-import org.kiwix.kiwixmobile.zim_manager.fileselect_view.effects.OpenFile
 import org.kiwix.kiwixmobile.zim_manager.fileselect_view.effects.ShareFiles
 import org.kiwix.kiwixmobile.zim_manager.fileselect_view.effects.StartMultiSelection
 import org.kiwix.kiwixmobile.zim_manager.library_view.adapter.LibraryListItem
@@ -92,6 +92,8 @@ class ZimManageViewModelTest {
   private val fat32Checker: Fat32Checker = mockk()
   private val defaultLanguageProvider: DefaultLanguageProvider = mockk()
   private val dataSource: DataSource = mockk()
+  private val connectivityManager: ConnectivityManager = mockk()
+  private val sharedPreferenceUtil: SharedPreferenceUtil = mockk()
   lateinit var viewModel: ZimManageViewModel
 
   private val downloads: PublishProcessor<List<DownloadModel>> = PublishProcessor.create()
@@ -126,6 +128,7 @@ class ZimManageViewModelTest {
     every { connectivityBroadcastReceiver.networkStates } returns networkStates
     every { application.registerReceiver(any(), any()) } returns mockk()
     every { dataSource.booksOnDiskAsListItems() } returns booksOnDiskListItems
+    every { connectivityManager.activeNetworkInfo.type } returns ConnectivityManager.TYPE_WIFI
     viewModel = ZimManageViewModel(
       downloadDao,
       newBookDao,
@@ -137,7 +140,9 @@ class ZimManageViewModelTest {
       bookUtils,
       fat32Checker,
       defaultLanguageProvider,
-      dataSource
+      dataSource,
+      connectivityManager,
+      sharedPreferenceUtil
     )
     testScheduler.triggerActions()
   }
@@ -334,8 +339,6 @@ class ZimManageViewModelTest {
 
   @Test
   fun `library update removes from sources and maps to list items`() {
-    every { application.getString(R.string.your_languages) } returns "1"
-    every { application.getString(R.string.other_languages) } returns "2"
     val bookAlreadyOnDisk = book(
       id = "0",
       url = "",
@@ -380,9 +383,9 @@ class ZimManageViewModelTest {
     viewModel.libraryItems.test()
       .assertValue(
         listOf(
-          LibraryListItem.DividerItem(Long.MAX_VALUE, "1"),
+          LibraryListItem.DividerItem(Long.MAX_VALUE, R.string.your_languages),
           LibraryListItem.BookItem(bookWithActiveLanguage, CanWrite4GbFile),
-          LibraryListItem.DividerItem(Long.MIN_VALUE, "2"),
+          LibraryListItem.DividerItem(Long.MIN_VALUE, R.string.other_languages),
           LibraryListItem.LibraryDownloadItem(downloadModel(book = bookDownloading))
         )
       )
@@ -390,7 +393,6 @@ class ZimManageViewModelTest {
 
   @Test
   fun `library marks files over 4GB as can't download if file system state says to`() {
-    every { application.getString(R.string.other_languages) } returns "2"
     val bookOver4Gb = book(
       id = "0",
       url = "",
@@ -415,7 +417,7 @@ class ZimManageViewModelTest {
     viewModel.libraryItems.test()
       .assertValue(
         listOf(
-          LibraryListItem.DividerItem(Long.MIN_VALUE, "2"),
+          LibraryListItem.DividerItem(Long.MIN_VALUE, R.string.other_languages),
           LibraryListItem.BookItem(bookOver4Gb, CannotWrite4GbFile)
         )
       )
@@ -423,13 +425,6 @@ class ZimManageViewModelTest {
 
   @Nested
   inner class SideEffects {
-    @Test
-    fun `RequestOpen offers OpenFile`() {
-      val bookOnDisk = bookOnDisk()
-      viewModel.sideEffects.test()
-        .also { viewModel.fileSelectActions.offer(RequestOpen(bookOnDisk)) }
-        .assertValues(OpenFile(bookOnDisk))
-    }
 
     @Test
     fun `RequestMultiSelection offers StartMultiSelection and selects a book`() {

@@ -18,7 +18,6 @@
   <string name="save_media">მედიაფაილეფიშ ჩუალა</string>
   <string name="save_media_error">მედიაფაილიშ ჩუალას ჩილათაქ მოხვადჷ!</string>
   <string name="save_media_saved">მედიაფაილი ჩუალირი რე მუჭოთ %s, ქძ. Android/media/org.kiwix…/</string>
-  <string name="rescan_fs_warning">გიმახარგალი დინოხიშ გორუა, ქორთხინთ ქუჯინით…</string>
   <string name="search_label">გორუა</string>
   <string name="choose_file">გეგშაგორით დინოხიშ ფაილი (*.zim)</string>
   <string name="open_in_new_tab">გონბწყათო რცხუ ახალი აშნაკიდას?</string>
@@ -27,23 +26,18 @@
   <string name="server_failed_toast_message">სერვერქ ვეჩირთინუ.</string>
   <string name="server_started_successfully_toast_message">ჩერვერქ ჩერთუ.</string>
   <string name="hotspot_details_message">გიმე მოჩამილი რე თქვანი აბანური ინტერნეტ-მეჭირინაფაშ ჭურჭულიშ გეშა ინფორმაცია. \nSSID : %1$s \nPass : %2$s</string>
-  <string name="hotspot_dialog_title">ჩართით თქვანი WIFI მეჭირინაფაშ ჭურჭული</string>
-  <string name="hotspot_dialog_neutral_button">ქო, ჩართული მაფუ</string>
+  <string name="hotspot_dialog_title" fuzzy="true">ჩართით თქვანი WIFI მეჭირინაფაშ ჭურჭული</string>
+  <string name="hotspot_dialog_neutral_button" fuzzy="true">ქო, ჩართული მაფუ</string>
   <string name="error_file_not_found">ჩილათა: გიშაგორილი ZIM-ფაილქ ვეგორუ.</string>
   <string name="error_file_invalid">ჩილათა: გიშაგორილი ფაილი ვა რე თინი ZIM-ფაილი.</string>
   <string name="error_article_url_not_found">ჩილათა: სტატიაშ (Url: %1$s) გიმოხარგუაქ ვემიხუჯინუ.</string>
   <string name="pref_display_title">ეკრანი</string>
-  <string name="pref_zoom_sub_title">მასშტაბი</string>
-  <string name="pref_zoom_dialog">მასშტაბირაფაშ დონე</string>
   <string name="pref_info_title">ინფორმაცია</string>
   <string name="pref_info_version">ვერსია</string>
-  <string name="pref_zoom_enable">მასშტაბირაფაშ კონტროლი</string>
   <string name="pref_night_mode">სერიშ რეჟიმი</string>
   <string name="pref_night_mode_summary">სტატიაშ კინნარაგადა ფერეფით ძირაფა</string>
   <string name="pref_back_to_top">ჟილე დორთა</string>
   <string name="pref_back_to_top_summary">ხასჷლაშ ბოლოს ჟილე დორთაშ კონჭიშ ძირაფა</string>
-  <string name="pref_hide_toolbar">ხეჭკუდეფიშ პანელიშ ტყობინაფა გონოჯინაშ რეჟიმს</string>
-  <string name="pref_hide_toolbar_summary">ხეჭკუდეფიშ პანელიშ ტყობინაფა ხასჷლაშ გიმე გინოჯინაშ რეჟიმს</string>
   <string name="pref_language_title">ნინა</string>
   <string name="pref_language_chooser">გეგშაგორით ნინა</string>
   <string name="pref_credits">მახვარებუეფი დო ლიცენზიეფი</string>
@@ -57,9 +51,10 @@
   <string name="pref_clear_all_history_title">ისტორიაშ ლასუა</string>
   <string name="pref_clear_all_history_summary">ასერდეიანი გორუაშ მოთხირეფიშ დო აშნაკიდეფიშ ისტორიაშ ლასუა</string>
   <string name="all_history_cleared">არძა ისტორიაქ დილასუ</string>
-  <string name="clear_all_history_dialog_title">არძა ისტორიაშ ლასუა</string>
+  <string name="clear_all_history_dialog_title">დილასასო არძა ისტორიაქ?</string>
   <string name="share">გობჟინაფა</string>
   <string name="delete">ლასუა</string>
+  <string name="cancel">გოუქვაფა</string>
   <string name="delete_specific_search_toast">ასერდეიანი გორუაქ დილასუ</string>
   <string name="got_it">გასაგები რე!</string>
   <string name="did_you_know">გიჩქუდესო ნამჷ-და?</string>
@@ -83,10 +78,10 @@
   <string name="local_zims">მონწყილობა</string>
   <string name="remote_zims">ონლაინ</string>
   <string name="library">ბიბლიოთეკა</string>
-  <string name="delete_zim_body">დობლასათო %s?</string>
-  <string name="delete_specific_zim_toast">ფაილქ დილასუ</string>
+  <string name="delete_zim_body" fuzzy="true">დობლასათო %s?</string>
+  <string name="delete_zims_toast">ფაილქ დილასუ</string>
   <string name="no_files_here">ფაილეფი ვა რე</string>
-  <string name="download_no_space">თე ფაილიშ გიმახარგალო შვენა ვაბაღუ.</string>
+  <string name="download_no_space" fuzzy="true">თე ფაილიშ გიმახარგალო შვენა ვაბაღუ.</string>
   <string name="space_available">ხემიოჭირინაფუ შვენა:</string>
   <string name="zim_simple">უბრალე</string>
   <string name="zim_no_pic">სურათეფიშ უმუშო</string>
@@ -119,7 +114,7 @@
   <string name="time_left">დოსქიდუ</string>
   <string name="time_today">ამდღა</string>
   <string name="time_yesterday">გოღა</string>
-  <string name="external_link_popup_dialog_title">გალენური რცხუშ მიშაჸონაფა</string>
+  <string name="external_link_popup_dialog_title">გალენური რცხუშ მიშაჸონაფა!</string>
   <string name="do_not_ask_anymore">ანწი ვაბკითხა</string>
   <string name="your_languages">გიშაგორილი ნინეფი:</string>
   <string name="other_languages">შხვა ნინეფი:</string>

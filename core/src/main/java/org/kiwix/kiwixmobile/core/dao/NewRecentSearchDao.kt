@@ -19,6 +19,8 @@ package org.kiwix.kiwixmobile.core.dao
 
 import io.objectbox.Box
 import io.objectbox.kotlin.query
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.map
 import org.kiwix.kiwixmobile.core.dao.entities.RecentSearchEntity
 import org.kiwix.kiwixmobile.core.dao.entities.RecentSearchEntity_
 import org.kiwix.kiwixmobile.core.data.local.entity.RecentSearch
@@ -26,9 +28,11 @@ import org.kiwix.kiwixmobile.core.search.adapter.SearchListItem.RecentSearchList
 import javax.inject.Inject
 
 class NewRecentSearchDao @Inject constructor(
-  val box: Box<RecentSearchEntity>
+  private val box: Box<RecentSearchEntity>,
+  private val flowBuilder: FlowBuilder
 ) {
-  fun recentSearches(zimId: String?) = box.asFlowable(
+  @OptIn(ExperimentalCoroutinesApi::class)
+  fun recentSearches(zimId: String?) = flowBuilder.buildCallbackFlow(
     box.query {
       equal(RecentSearchEntity_.zimId, zimId ?: "")
       orderDesc(RecentSearchEntity_.id)
@@ -60,6 +64,6 @@ class NewRecentSearchDao @Inject constructor(
   }
 
   companion object {
-    const val NUM_RECENT_RESULTS = 100
+    private const val NUM_RECENT_RESULTS = 100
   }
 }

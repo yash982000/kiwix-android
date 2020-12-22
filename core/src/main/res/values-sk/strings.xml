@@ -13,7 +13,6 @@
   <string name="save_media">Uložiť médiá ako…</string>
   <string name="save_media_error">Pri ukladaní došlo k chybe!</string>
   <string name="save_media_saved">Médiá uložené ako %1$s v priečinku Obrázky</string>
-  <string name="rescan_fs_warning">Vyhľadávanie ZIM súborov, čakajte prosím…</string>
   <string name="search_label">Hľadať</string>
   <string name="choose_file">Vyberte súbor so ZIM obsahom (*.zim)</string>
   <string name="open_in_new_tab">Otvoriť odkaz na novej karte?</string>
@@ -21,10 +20,8 @@
   <string name="error_file_invalid">Chyba: Vybraný súbor nie je platný ZIM súbor.</string>
   <string name="error_article_url_not_found">Chyba: Načítavanie článku (Url: %1$s) sa nepodarilo.</string>
   <string name="pref_display_title">Zobrazenie</string>
-  <string name="pref_zoom_dialog">Úroveň lupy</string>
   <string name="pref_info_title">Informácie</string>
   <string name="pref_info_version">Verzia</string>
-  <string name="pref_zoom_enable">Ovládanie prvky lupy</string>
   <string name="pref_night_mode">Nočný režim</string>
   <string name="pref_night_mode_summary">Zobraziť články s otočenými farbami</string>
   <string name="pref_back_to_top">Späť na začiatok</string>
